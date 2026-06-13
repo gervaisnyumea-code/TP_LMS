@@ -1,6 +1,35 @@
 // public/js/app.js
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Theme toggle
+    const themeBtn = document.getElementById('themeToggleBtn');
+    if (themeBtn) {
+        const root = document.documentElement;
+        const sunIcon = themeBtn.querySelector('.sun-icon');
+        const moonIcon = themeBtn.querySelector('.moon-icon');
+
+        function updateIcons(theme) {
+            if (theme === 'dark') {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            } else {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            }
+        }
+
+        // Initialize icons based on current theme
+        const currentTheme = root.getAttribute('data-theme') || 'light';
+        updateIcons(currentTheme);
+
+        themeBtn.addEventListener('click', () => {
+            const newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', newTheme);
+            localStorage.setItem('lms_theme', newTheme);
+            updateIcons(newTheme);
+        });
+    }
+
     // Sidebar toggle
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.querySelector('.sidebar-toggle');
@@ -63,11 +92,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Confirm dialogs
     document.querySelectorAll('[data-confirm]').forEach(el => {
-        el.addEventListener('click', (e) => {
-            if (!confirm(el.dataset.confirm)) {
-                e.preventDefault();
-            }
-        });
+        if(el.tagName === 'FORM') {
+            el.addEventListener('submit', (e) => {
+                if (!confirm(el.dataset.confirm)) {
+                    e.preventDefault();
+                }
+            });
+        } else {
+            el.addEventListener('click', (e) => {
+                if (!confirm(el.dataset.confirm)) {
+                    e.preventDefault();
+                }
+            });
+        }
     });
 });
 

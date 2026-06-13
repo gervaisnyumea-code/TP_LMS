@@ -11,7 +11,7 @@ $cours_id = (int)($_POST['cours_id'] ?? 0);
 
 if ($cours_id > 0) {
     $coursModel = new Cours($pdo);
-    $coursModel->inscrireEtudiant($cours_id, $_SESSION['user_id']);
+    $coursModel->inscrireEtudiant($_SESSION['user_id'], $cours_id);
     set_flash('success', 'Vous êtes maintenant inscrit à ce cours.');
     rediriger('etudiant/cours', ['id' => $cours_id]);
 }

@@ -19,7 +19,7 @@ class Cours
         return (int) $this->pdo->lastInsertId('cours_id_seq');
     }
 
-    public function modifier(int $id, string $titre, string $description, int $visible): bool
+    public function modifier(int $id, string $titre, string $description, bool $visible): bool
     {
         $stmt = $this->pdo->prepare("UPDATE cours SET titre = ?, description = ?, visible = ? WHERE id = ?");
         return $stmt->execute([$titre, $description, $visible, $id]);
@@ -42,15 +42,12 @@ class Cours
             LEFT JOIN modules m ON m.id = c.module_id
             LEFT JOIN lecons l ON l.cours_id = c.id
             WHERE c.id = ?
-            GROUP BY c.id
+            GROUP BY c.id, u.nom, u.prenom, m.titre
         ");
         $stmt->execute([$id]);
         return $stmt->fetch() ?: null;
     }
 
-    /**
-     * Lister les cours d'un enseignant.
-     */
     public function listerParEnseignant(int $enseignant_id): array
     {
         $stmt = $this->pdo->prepare("
@@ -61,16 +58,13 @@ class Cours
             LEFT JOIN lecons l ON l.cours_id = c.id
             LEFT JOIN modules m ON m.id = c.module_id
             WHERE c.enseignant_id = ?
-            GROUP BY c.id
+            GROUP BY c.id, m.titre
             ORDER BY c.date_creation DESC
         ");
         $stmt->execute([$enseignant_id]);
         return $stmt->fetchAll();
     }
 
-    /**
-     * Lister les cours visibles (catalogue etudiant).
-     */
     public function listerVisibles(): array
     {
         $stmt = $this->pdo->query("
@@ -81,16 +75,13 @@ class Cours
             LEFT JOIN utilisateurs u ON u.id = c.enseignant_id
             LEFT JOIN lecons l ON l.cours_id = c.id
             LEFT JOIN modules m ON m.id = c.module_id
-            WHERE c.visible = 1
-            GROUP BY c.id
+            WHERE c.visible = TRUE
+            GROUP BY c.id, u.nom, u.prenom, m.titre
             ORDER BY c.date_creation DESC
         ");
         return $stmt->fetchAll();
     }
 
-    /**
-     * Lister tous les cours (promoteur).
-     */
     public function listerTous(): array
     {
         $stmt = $this->pdo->query("
@@ -103,15 +94,12 @@ class Cours
             LEFT JOIN lecons l ON l.cours_id = c.id
             LEFT JOIN inscriptions i ON i.cours_id = c.id
             LEFT JOIN modules m ON m.id = c.module_id
-            GROUP BY c.id
+            GROUP BY c.id, u.nom, u.prenom, m.titre
             ORDER BY c.date_creation DESC
         ");
         return $stmt->fetchAll();
     }
 
-    /**
-     * Verifier si un cours appartient a un enseignant.
-     */
     public function appartientA(int $cours_id, int $enseignant_id): bool
     {
         $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM cours WHERE id = ? AND enseignant_id = ?");
@@ -119,9 +107,6 @@ class Cours
         return (int) $stmt->fetchColumn() > 0;
     }
 
-    /**
-     * Verifier si un etudiant est inscrit a un cours.
-     */
     public function estInscrit(int $etudiant_id, int $cours_id): bool
     {
         $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM inscriptions WHERE etudiant_id = ? AND cours_id = ?");
@@ -129,18 +114,12 @@ class Cours
         return (int) $stmt->fetchColumn() > 0;
     }
 
-    /**
-     * Inscrire un etudiant a un cours.
-     */
     public function inscrireEtudiant(int $etudiant_id, int $cours_id): bool
     {
         $stmt = $this->pdo->prepare("INSERT INTO inscriptions (etudiant_id, cours_id) VALUES (?, ?) ON CONFLICT DO NOTHING");
         return $stmt->execute([$etudiant_id, $cours_id]);
     }
 
-    /**
-     * Lister les cours auxquels un etudiant est inscrit.
-     */
     public function listerCoursEtudiant(int $etudiant_id): array
     {
         $stmt = $this->pdo->prepare("
@@ -154,7 +133,7 @@ class Cours
             LEFT JOIN lecons l ON l.cours_id = c.id
             LEFT JOIN modules m ON m.id = c.module_id
             WHERE i.etudiant_id = ?
-            GROUP BY c.id
+            GROUP BY c.id, u.nom, u.prenom, i.date_inscription, m.titre
             ORDER BY i.date_inscription DESC
         ");
         $stmt->execute([$etudiant_id]);

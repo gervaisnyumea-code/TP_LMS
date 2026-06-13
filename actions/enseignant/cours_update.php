@@ -10,7 +10,7 @@ verifier_csrf();
 $id = (int)($_POST['id'] ?? 0);
 $titre = trim($_POST['titre'] ?? '');
 $description = trim($_POST['description'] ?? '');
-$visible = isset($_POST['visible']) ? 1 : 0;
+$visible = isset($_POST['visible']);
 
 $coursModel = new Cours($pdo);
 

@@ -21,7 +21,7 @@ $coursVisibles = $coursModel->listerVisibles();
 <?php else: ?>
     <div class="content-grid">
         <?php foreach($coursVisibles as $c): 
-            $estInscrit = $coursModel->estInscrit($c['id'], $_SESSION['user_id']);
+            $estInscrit = $coursModel->estInscrit($_SESSION['user_id'], $c['id']);
         ?>
         <div class="card course-card">
             <div class="course-card-img">

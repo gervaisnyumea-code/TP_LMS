@@ -6,17 +6,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: var(--color-bg);
     padding: var(--spacing-4);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-layout::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, transparent 60%);
+    z-index: 0;
 }
 
 .auth-card {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    max-width: 400px;
+    max-width: 440px;
     background-color: var(--color-surface);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
-    padding: var(--spacing-6) var(--spacing-8);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-8) var(--spacing-8);
 }
 
 .auth-header {
@@ -31,7 +47,7 @@
     width: 64px;
     height: 64px;
     border-radius: var(--radius-full);
-    background-color: rgba(61, 142, 207, 0.1);
+    background-color: rgba(37, 99, 235, 0.1);
     color: var(--color-primary);
     margin-bottom: var(--spacing-4);
 }
@@ -42,15 +58,17 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    text-decoration: none;
+    color: inherit;
 }
 
 .course-card-img {
-    height: 140px;
-    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+    height: 160px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.3);
     font-size: 64px;
     font-weight: 700;
 }
@@ -64,11 +82,12 @@
 
 .course-card-title {
     font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-1);
+    margin-bottom: var(--spacing-2);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    color: var(--color-text);
 }
 
 .course-card-meta {
@@ -96,6 +115,7 @@
     font-size: var(--font-size-xs);
     margin-bottom: var(--spacing-1);
     color: var(--color-text-muted);
+    font-weight: 500;
 }
 
 /* Lesson Player Split Layout */
@@ -163,15 +183,17 @@
     align-items: flex-start;
     gap: var(--spacing-3);
     transition: background-color var(--transition-fast);
+    text-decoration: none;
+    color: var(--color-text);
 }
 
 .lesson-item:hover {
-    background-color: var(--color-bg);
+    background-color: var(--color-surface-hover);
 }
 
 .lesson-item.active {
-    background-color: rgba(61, 142, 207, 0.05);
-    border-left: 3px solid var(--color-accent);
+    background-color: rgba(37, 99, 235, 0.05);
+    border-left: 3px solid var(--color-primary);
 }
 
 .lesson-icon {
@@ -184,7 +206,7 @@
 }
 
 .lesson-icon.locked { color: var(--color-locked); }
-.lesson-icon.available { color: var(--color-secondary); }
+.lesson-icon.available { color: var(--color-primary); }
 .lesson-icon.validated { color: var(--color-success); }
 .lesson-icon.failed { color: var(--color-warning); }
 
@@ -242,18 +264,18 @@
 }
 
 .quiz-option:hover {
-    background-color: var(--color-bg);
+    background-color: var(--color-surface-hover);
 }
 
 .quiz-option input[type="radio"] {
     width: 18px;
     height: 18px;
-    accent-color: var(--color-secondary);
+    accent-color: var(--color-primary);
 }
 
 .quiz-option:has(input[type="radio"]:checked) {
-    border-color: var(--color-secondary);
-    background-color: rgba(61, 142, 207, 0.05);
+    border-color: var(--color-primary);
+    background-color: rgba(37, 99, 235, 0.05);
 }
 
 /* Certificate View */
@@ -268,8 +290,9 @@
 .certificate {
     width: 100%;
     max-width: 800px;
-    background-color: var(--color-surface);
-    border: 10px solid var(--color-primary);
+    background-color: #fff; /* Always white for certificate */
+    color: #111827; /* Always dark text */
+    border: 10px solid #2563EB;
     padding: 60px;
     text-align: center;
     box-shadow: var(--shadow-lg);
@@ -278,18 +301,18 @@
 }
 
 .certificate-inner {
-    border: 2px solid var(--color-secondary);
+    border: 2px solid #4F46E5;
     padding: 40px;
     position: relative;
 }
 
-.cert-logo { margin: 0 auto 30px; color: var(--color-primary); }
+.cert-logo { margin: 0 auto 30px; color: #2563EB; }
 .cert-logo svg { width: 64px; height: 64px; }
-.cert-title { font-size: 48px; color: var(--color-primary); font-family: serif; margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase; }
-.cert-subtitle { font-size: 18px; color: var(--color-text-muted); margin-bottom: 20px; }
-.cert-name { font-size: 36px; color: var(--color-text); font-weight: 700; margin-bottom: 20px; font-style: italic; }
-.cert-reason { font-size: 18px; color: var(--color-text-muted); margin-bottom: 20px; }
-.cert-course { font-size: 24px; color: var(--color-secondary); font-weight: 600; margin-bottom: 50px; }
+.cert-title { font-size: 48px; color: #2563EB; font-family: 'Poppins', serif; margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+.cert-subtitle { font-size: 18px; color: #6B7280; margin-bottom: 20px; }
+.cert-name { font-size: 36px; color: #111827; font-weight: 700; margin-bottom: 20px; font-style: italic; }
+.cert-reason { font-size: 18px; color: #6B7280; margin-bottom: 20px; }
+.cert-course { font-size: 24px; color: #4F46E5; font-weight: 600; margin-bottom: 50px; }
 
 .cert-footer {
     display: flex;
@@ -299,11 +322,11 @@
 }
 
 .cert-signature, .cert-date {
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid #E5E7EB;
     padding-top: 10px;
     width: 200px;
     font-size: 16px;
-    color: var(--color-text);
+    color: #111827;
 }
 
 .cert-meta {
@@ -324,5 +347,5 @@
         width: 100%; height: 100%; justify-content: center; align-items: center;
     }
     .certificate { border: none; box-shadow: none; width: 100%; max-width: 100%; }
-    .cert-meta { display: block; position: static; margin-top: 40px; }
+    .cert-meta { display: block; position: static; margin-top: 40px; color: #6B7280; }
 }

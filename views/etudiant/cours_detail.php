@@ -1,7 +1,7 @@
 <?php
 $cours_id = (int)($_GET['id'] ?? 0);
 
-if (!$coursModel->estInscrit($cours_id, $_SESSION['user_id'])) {
+if (!$coursModel->estInscrit($_SESSION['user_id'], $cours_id)) {
     set_flash('error', 'Vous devez être inscrit pour accéder à ce cours.');
     rediriger('etudiant/catalogue');
 }

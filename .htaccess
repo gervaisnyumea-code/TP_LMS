@@ -5,19 +5,23 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [L,QSA]
 
-# Proteger les fichiers sensibles
-<FilesMatch "\.(php|sql|md)$">
-    <IfModule mod_authz_core.c>
-        Require all denied
-    </IfModule>
+# Proteger les dossiers sensibles de l'acces direct
+RewriteRule ^config/ - [F,L]
+RewriteRule ^models/ - [F,L]
+RewriteRule ^sql/ - [F,L]
+RewriteRule ^docker/ - [F,L]
+RewriteRule ^\.env - [F,L]
+RewriteRule ^\.git - [F,L]
+
+# Proteger les fichiers de documentation et config
+<FilesMatch "\.(sql|md|env|yml|yaml|sh|conf|ini)$">
+    Require all denied
 </FilesMatch>
 
-# Autoriser index.php
-<Files "index.php">
-    <IfModule mod_authz_core.c>
-        Require all granted
-    </IfModule>
-</Files>
+# Autoriser les fichiers PHP (index.php, actions/)
+<FilesMatch "\.php$">
+    Require all granted
+</FilesMatch>
 
 # Desactiver le listing des repertoires
 Options -Indexes

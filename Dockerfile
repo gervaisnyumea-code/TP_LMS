@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libpq-dev \
     libcurl4-openssl-dev \
+    libonig-dev \
     unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) \
@@ -16,7 +17,6 @@ RUN apt-get update && apt-get install -y \
         mbstring \
         zip \
         gd \
-        fileinfo \
         curl \
     && a2enmod rewrite headers \
     && rm -rf /var/lib/apt/lists/*

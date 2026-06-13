@@ -20,9 +20,9 @@
 - [ ] Extension `gd` activee
 - [ ] Extension `curl` activee (pour Cloudinary)
 - [ ] Apache avec `mod_rewrite` active
-- [ ] `AllowOverride All` dans la config Apache
-- [ ] Docker installe (`docker --version`)
-- [ ] Docker Compose installe (`docker compose version`)
+- [x] `AllowOverride All` dans la config Apache
+- [x] Docker installe (`docker --version`)
+- [x] Docker Compose installe (`docker compose version`)
 
 ### 0.2 Base de donnees
 
@@ -39,73 +39,73 @@
 ### 1.1 Configuration PHP
 
 **config/database.php**
-- [ ] Lecture `DATABASE_URL` depuis env (Neon production)
-- [ ] Fallback DSN `pgsql:host=...;port=5432;dbname=...` (dev local)
-- [ ] Instance PDO avec : `ERRMODE_EXCEPTION`, `FETCH_ASSOC`, `EMULATE_PREPARES => false`
-- [ ] Try/catch avec message d'erreur explicite
-- [ ] Variable `$pdo` exportee apres require
-- [ ] Test : `require 'config/database.php';` ne produit aucune erreur
+- [x] Lecture `DATABASE_URL` depuis env (Neon production)
+- [x] Fallback DSN `pgsql:host=...;port=5432;dbname=...` (dev local)
+- [x] Instance PDO avec : `ERRMODE_EXCEPTION`, `FETCH_ASSOC`, `EMULATE_PREPARES => false`
+- [x] Try/catch avec message d'erreur explicite
+- [x] Variable `$pdo` exportee apres require
+- [x] Test : `require 'config/database.php';` ne produit aucune erreur
 
 **config/constants.php**
 - [ ] `APP_NAME` defini (lecture env avec fallback)
 - [ ] `APP_ENV` defini
 - [ ] `APP_BASE_URL` defini
-- [ ] `CLOUDINARY_CLOUD_NAME` defini (lecture env)
+- [x] `CLOUDINARY_CLOUD_NAME` defini (lecture env)
 - [ ] `CLOUDINARY_API_KEY` defini (lecture env)
 - [ ] `CLOUDINARY_API_SECRET` defini (lecture env)
-- [ ] `CLOUDINARY_BASE_URL` construit depuis CLOUDINARY_CLOUD_NAME
-- [ ] `UPLOAD_PATH_PDF` chemin absolu
-- [ ] `UPLOAD_PATH_VIDEO` chemin absolu
-- [ ] `MAX_FILE_SIZE_PDF` = 50 Mo
-- [ ] `MAX_FILE_SIZE_VIDEO` = 500 Mo
-- [ ] `DEFAULT_NOTE_PASSAGE` = 70
-- [ ] `DEFAULT_TENTATIVES_MAX` = 3
-- [ ] `ROLES` = tableau des 3 roles
-- [ ] `MIME_PDF` = ['application/pdf']
-- [ ] `MIME_VIDEO` = ['video/mp4', 'video/webm']
-- [ ] `MIME_IMAGE` = ['image/jpeg', 'image/png', 'image/webp']
-- [ ] `SESSION_TIMEOUT` lecture env
+- [x] `CLOUDINARY_BASE_URL` construit depuis CLOUDINARY_CLOUD_NAME
+- [x] `UPLOAD_PATH_PDF` chemin absolu
+- [x] `UPLOAD_PATH_VIDEO` chemin absolu
+- [x] `MAX_FILE_SIZE_PDF` = 50 Mo
+- [x] `MAX_FILE_SIZE_VIDEO` = 500 Mo
+- [x] `DEFAULT_NOTE_PASSAGE` = 70
+- [x] `DEFAULT_TENTATIVES_MAX` = 3
+- [x] `ROLES` = tableau des 3 roles
+- [x] `MIME_PDF` = ['application/pdf']
+- [x] `MIME_VIDEO` = ['video/mp4', 'video/webm']
+- [x] `MIME_IMAGE` = ['image/jpeg', 'image/png', 'image/webp']
+- [x] `SESSION_TIMEOUT` lecture env
 - [ ] `SESSION_NAME` defini
 
 **config/session.php**
-- [ ] `session_name(SESSION_NAME)` appele
-- [ ] `session_start()` appele
-- [ ] Cookie params : `HttpOnly`, `SameSite=Strict`, `path=/`
-- [ ] Fonction `is_logged_in()` retourne bool
-- [ ] Fonction `get_current_user_id()` retourne ID ou redirige
-- [ ] Fonction `get_current_role()` retourne role
-- [ ] Fonction `require_role($role)` verifie ou 403
-- [ ] Fonction `require_login()` verifie ou redirige
-- [ ] Fonction `csrf_token()` genere/retourne token
-- [ ] Fonction `verify_csrf($token)` avec `hash_equals()`
-- [ ] Fonction `set_flash($type, $message)`
-- [ ] Fonction `get_flash()` retourne et supprime
-- [ ] Fonction `sanitize($value)` wrapper `htmlspecialchars()`
-- [ ] Verification timeout session (SESSION_TIMEOUT)
+- [x] `session_name(SESSION_NAME)` appele
+- [x] `session_start()` appele
+- [x] Cookie params : `HttpOnly`, `SameSite=Strict`, `path=/`
+- [x] Fonction `is_logged_in()` retourne bool
+- [x] Fonction `get_current_user_id()` retourne ID ou redirige
+- [x] Fonction `get_current_role()` retourne role
+- [x] Fonction `require_role($role)` verifie ou 403
+- [x] Fonction `require_login()` verifie ou redirige
+- [x] Fonction `csrf_token()` genere/retourne token
+- [x] Fonction `verify_csrf($token)` avec `hash_equals()`
+- [x] Fonction `set_flash($type, $message)`
+- [x] Fonction `get_flash()` retourne et supprime
+- [x] Fonction `sanitize($value)` wrapper `htmlspecialchars()`
+- [x] Verification timeout session (SESSION_TIMEOUT)
 
 ### 1.2 Schema base de donnees
 
 **sql/schema.sql (PostgreSQL / Neon)**
-- [ ] Types `CREATE TYPE role_utilisateur AS ENUM` et `type_contenu_lecon AS ENUM`
-- [ ] Table `utilisateurs` : SERIAL, BOOLEAN, type role_utilisateur
-- [ ] Table `modules` : SERIAL, promoteur_id INTEGER REFERENCES
-- [ ] Table `cours` : SERIAL, BOOLEAN visible, REFERENCES avec ON DELETE CASCADE/SET NULL
-- [ ] Table `lecons` : SERIAL, type_contenu type_contenu_lecon, cloudinary_id VARCHAR(255)
-- [ ] Table `evaluations` : SERIAL, lecon_id INTEGER UNIQUE REFERENCES
-- [ ] Table `questions` : SERIAL, options_json JSONB
-- [ ] Table `inscriptions` : SERIAL, CONSTRAINT UNIQUE (etudiant_id, cours_id)
-- [ ] Table `progressions` : SERIAL, BOOLEAN valide/lecon_consultee, CONSTRAINT UNIQUE
-- [ ] Table `certificats` : SERIAL, CONSTRAINT UNIQUE (etudiant_id, module_id)
-- [ ] 8 index de performance crees
-- [ ] Script execute sans erreur sur Neon : `psql "$DATABASE_URL" -f sql/schema.sql`
+- [x] Types `CREATE TYPE role_utilisateur AS ENUM` et `type_contenu_lecon AS ENUM`
+- [x] Table `utilisateurs` : SERIAL, BOOLEAN, type role_utilisateur
+- [x] Table `modules` : SERIAL, promoteur_id INTEGER REFERENCES
+- [x] Table `cours` : SERIAL, BOOLEAN visible, REFERENCES avec ON DELETE CASCADE/SET NULL
+- [x] Table `lecons` : SERIAL, type_contenu type_contenu_lecon, cloudinary_id VARCHAR(255)
+- [x] Table `evaluations` : SERIAL, lecon_id INTEGER UNIQUE REFERENCES
+- [x] Table `questions` : SERIAL, options_json JSONB
+- [x] Table `inscriptions` : SERIAL, CONSTRAINT UNIQUE (etudiant_id, cours_id)
+- [x] Table `progressions` : SERIAL, BOOLEAN valide/lecon_consultee, CONSTRAINT UNIQUE
+- [x] Table `certificats` : SERIAL, CONSTRAINT UNIQUE (etudiant_id, module_id)
+- [x] 8 index de performance crees
+- [x] Script execute sans erreur sur Neon : `psql "$DATABASE_URL" -f sql/schema.sql`
 
 **sql/seed.php (PostgreSQL)**
-- [ ] Require database.php
-- [ ] 3 comptes insere avec `password_hash(PASSWORD_BCRYPT)`
-- [ ] `ON CONFLICT (email) DO NOTHING` (pas `INSERT IGNORE`)
-- [ ] 1 module de demo
-- [ ] 1 cours de demo
-- [ ] 3 lecons de demo (ordres 1, 2, 3)
+- [x] Require database.php
+- [x] 3 comptes insere avec `password_hash(PASSWORD_BCRYPT)`
+- [x] `ON CONFLICT (email) DO NOTHING` (pas `INSERT IGNORE`)
+- [x] 1 module de demo
+- [x] 1 cours de demo
+- [x] 3 lecons de demo (ordres 1, 2, 3)
 - [ ] 3 evaluations (une par lecon)
 - [ ] 9 questions QCM (3 par evaluation, 4 options chacune)
 - [ ] Script execute : `php sql/seed.php` sans erreur
@@ -198,101 +198,101 @@
 ### 1.4 CSS (6 fichiers)
 
 **public/css/reset.css**
-- [ ] `box-sizing: border-box` universel
-- [ ] `margin: 0; padding: 0` sur body
-- [ ] Listes sans style
-- [ ] Images `max-width: 100%`
-- [ ] Police Inter sur body
+- [x] `box-sizing: border-box` universel
+- [x] `margin: 0; padding: 0` sur body
+- [x] Listes sans style
+- [x] Images `max-width: 100%`
+- [x] Police Inter sur body
 
 **public/css/variables.css**
-- [ ] 12 couleurs de la charte (section 3.1 CONSTRUCTION.md)
-- [ ] 5 tailles de police
-- [ ] Espacements : 4px a 48px
-- [ ] Rayons de bordure : 4px, 8px, 12px
-- [ ] Ombres : legere, moyenne, elevee
-- [ ] Transitions
+- [x] 12 couleurs de la charte (section 3.1 CONSTRUCTION.md)
+- [x] 5 tailles de police
+- [x] Espacements : 4px a 48px
+- [x] Rayons de bordure : 4px, 8px, 12px
+- [x] Ombres : legere, moyenne, elevee
+- [x] Transitions
 
 **public/css/base.css**
-- [ ] Body : fond, couleur, line-height 1.6, font-family
-- [ ] Headings h1-h6 : tailles, poids, marges
-- [ ] Liens : couleur secondary, hover accent
-- [ ] Paragraphes, listes : marges
-- [ ] `.container` max-width 1200px centre
-- [ ] Utilitaires : `.text-muted`, `.text-center`, `.text-right`, `.mt-1`-`.mt-4`, `.mb-1`-`.mb-4`, `.hidden`
+- [x] Body : fond, couleur, line-height 1.6, font-family
+- [x] Headings h1-h6 : tailles, poids, marges
+- [x] Liens : couleur secondary, hover accent
+- [x] Paragraphes, listes : marges
+- [x] `.container` max-width 1200px centre
+- [x] Utilitaires : `.text-muted`, `.text-center`, `.text-right`, `.mt-1`-`.mt-4`, `.mb-1`-`.mb-4`, `.hidden`
 
 **public/css/components.css**
-- [ ] `.btn` base : padding, border-radius, cursor, transition
-- [ ] `.btn-primary` fond primary, texte blanc, hover
-- [ ] `.btn-secondary` contourne, hover fond leger
-- [ ] `.btn-danger` fond error
-- [ ] `.btn-success` fond success
-- [ ] `.btn-disabled` fond locked, not-allowed, opacity
-- [ ] `.card` fond blanc, ombre, border-radius, padding
-- [ ] `.card-header`, `.card-body`, `.card-footer`
-- [ ] `.progress-bar` conteneur 8px
-- [ ] `.progress-bar-fill` gradient, transition
-- [ ] `.progress-circle` SVG stroke-dasharray
-- [ ] `.badge` + 5 variantes (success, error, warning, info, locked)
-- [ ] `.alert` + 2 variantes (success, error)
-- [ ] `.modal-overlay` fixed, fond noir 50%, z-index 1000
-- [ ] `.modal` centre, fond blanc, max-width 600px
-- [ ] `.modal-header`, `.modal-body`, `.modal-footer`
-- [ ] `.table` border-collapse, th gris, cellules padding
-- [ ] `.form-group`, `.form-label`, `.form-input`, `.form-select`, `.form-error`
+- [x] `.btn` base : padding, border-radius, cursor, transition
+- [x] `.btn-primary` fond primary, texte blanc, hover
+- [x] `.btn-secondary` contourne, hover fond leger
+- [x] `.btn-danger` fond error
+- [x] `.btn-success` fond success
+- [x] `.btn-disabled` fond locked, not-allowed, opacity
+- [x] `.card` fond blanc, ombre, border-radius, padding
+- [x] `.card-header`, `.card-body`, `.card-footer`
+- [x] `.progress-bar` conteneur 8px
+- [x] `.progress-bar-fill` gradient, transition
+- [x] `.progress-circle` SVG stroke-dasharray
+- [x] `.badge` + 5 variantes (success, error, warning, info, locked)
+- [x] `.alert` + 2 variantes (success, error)
+- [x] `.modal-overlay` fixed, fond noir 50%, z-index 1000
+- [x] `.modal` centre, fond blanc, max-width 600px
+- [x] `.modal-header`, `.modal-body`, `.modal-footer`
+- [x] `.table` border-collapse, th gris, cellules padding
+- [x] `.form-group`, `.form-label`, `.form-input`, `.form-select`, `.form-error`
 
 **public/css/layout.css**
-- [ ] `.app-layout` grid sidebar + main
-- [ ] `.sidebar` 260px, fond primary, sticky
-- [ ] `.sidebar-logo`, `.sidebar-nav`, `.sidebar-nav-item`, `.sidebar-user`
-- [ ] `.sidebar-nav-item.active` fond blanc 15%, bordure gauche
-- [ ] `.main-content` padding, min-height 100vh
-- [ ] `.topbar` flex titre + actions
-- [ ] Responsive 768px : sidebar overlay
-- [ ] Responsive 1024px : sidebar fixe
+- [x] `.app-layout` grid sidebar + main
+- [x] `.sidebar` 260px, fond primary, sticky
+- [x] `.sidebar-logo`, `.sidebar-nav`, `.sidebar-nav-item`, `.sidebar-user`
+- [x] `.sidebar-nav-item.active` fond blanc 15%, bordure gauche
+- [x] `.main-content` padding, min-height 100vh
+- [x] `.topbar` flex titre + actions
+- [x] Responsive 768px : sidebar overlay
+- [x] Responsive 1024px : sidebar fixe
 
 **public/css/pages.css**
-- [ ] `.dashboard-grid` CSS Grid responsive
-- [ ] `.dashboard-stat` carte stat : icone, valeur, label
-- [ ] `.course-grid` grille cartes cours
-- [ ] `.course-card` image, titre, enseignant, barre progression
-- [ ] `.lesson-list` liste ordonnee lecons
-- [ ] `.lesson-item` flex, icone etat, titre, badge
-- [ ] `.video-player` 16:9, controles
-- [ ] `.pdf-viewer` iframe 80vh
-- [ ] `.quiz-container`, `.quiz-option`, `.quiz-result`
-- [ ] `.certificate` format A4, bordure, centrage
-- [ ] `.login-page` centrage vertical/horizontal
-- [ ] `@media print` pour certificat
+- [x] `.dashboard-grid` CSS Grid responsive
+- [x] `.dashboard-stat` carte stat : icone, valeur, label
+- [x] `.course-grid` grille cartes cours
+- [x] `.course-card` image, titre, enseignant, barre progression
+- [x] `.lesson-list` liste ordonnee lecons
+- [x] `.lesson-item` flex, icone etat, titre, badge
+- [x] `.video-player` 16:9, controles
+- [x] `.pdf-viewer` iframe 80vh
+- [x] `.quiz-container`, `.quiz-option`, `.quiz-result`
+- [x] `.certificate` format A4, bordure, centrage
+- [x] `.login-page` centrage vertical/horizontal
+- [x] `@media print` pour certificat
 
 ### 1.5 Layouts PHP (3 fichiers)
 
 **views/layouts/header.php**
-- [ ] `<!DOCTYPE html>` + `lang="fr"`
-- [ ] `<meta charset="UTF-8">`
-- [ ] `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
-- [ ] `<title>` dynamique + APP_NAME
-- [ ] 6 liens CSS : reset, variables, base, components, layout, pages
-- [ ] Google Fonts link pour Inter (400, 500, 600, 700)
-- [ ] Require config/session.php
-- [ ] Verification login / redirection si non connecte (sauf pages publiques)
-- [ ] Ouverture `<body>` + `<div class="app-layout">`
-- [ ] Inclusion sidebar.php si connecte
+- [x] `<!DOCTYPE html>` + `lang="fr"`
+- [x] `<meta charset="UTF-8">`
+- [x] `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+- [x] `<title>` dynamique + APP_NAME
+- [x] 6 liens CSS : reset, variables, base, components, layout, pages
+- [x] Google Fonts link pour Inter (400, 500, 600, 700)
+- [x] Require config/session.php
+- [x] Verification login / redirection si non connecte (sauf pages publiques)
+- [x] Ouverture `<body>` + `<div class="app-layout">`
+- [x] Inclusion sidebar.php si connecte
 
 **views/layouts/sidebar.php**
-- [ ] Logo SVG en haut
-- [ ] Navigation conditionnelle par role :
-  - [ ] Etudiant : Dashboard, Catalogue, Mes cours, Progression, Certificats
-  - [ ] Enseignant : Dashboard, Mes cours, Creer un cours, Statistiques
-  - [ ] Promoteur : Dashboard, Modules, Supervision
-- [ ] Icones SVG inline pour chaque lien
-- [ ] Classe `.active` selon page courante
-- [ ] Bloc utilisateur bas : nom, role, deconnexion SVG
+- [x] Logo SVG en haut
+- [x] Navigation conditionnelle par role :
+  - [x] Etudiant : Dashboard, Catalogue, Mes cours, Progression, Certificats
+  - [x] Enseignant : Dashboard, Mes cours, Creer un cours, Statistiques
+  - [x] Promoteur : Dashboard, Modules, Supervision
+- [x] Icones SVG inline pour chaque lien
+- [x] Classe `.active` selon page courante
+- [x] Bloc utilisateur bas : nom, role, deconnexion SVG
 
 **views/layouts/footer.php**
-- [ ] Fermeture `</main>` + `</div>` (app-layout)
-- [ ] Affichage message flash si present
-- [ ] Scripts JS : app.js toujours, quiz.js/player.js/progression.js conditionnels
-- [ ] Fermeture `</body>` + `</html>`
+- [x] Fermeture `</main>` + `</div>` (app-layout)
+- [x] Affichage message flash si present
+- [x] Scripts JS : app.js toujours, quiz.js/player.js/progression.js conditionnels
+- [x] Fermeture `</body>` + `</html>`
 
 ### 1.6 Icones SVG
 
@@ -313,83 +313,83 @@
 ### 1.7 Routeur et securite
 
 **index.php**
-- [ ] Require config (database, constants, session)
-- [ ] Lecture `$_GET['page']` avec defaut
-- [ ] Pages publiques autorisees sans login : login, register, verifier-certificat
-- [ ] Si non connecte et page non publique : redirection login
-- [ ] Si connecte sans page : redirection dashboard du role
-- [ ] Parsing route : `role/vue` avec parametres GET additionnels
-- [ ] Verification `file_exists` de la vue
-- [ ] Inclusion header + vue + footer
-- [ ] Gestion 404
+- [x] Require config (database, constants, session)
+- [x] Lecture `$_GET['page']` avec defaut
+- [x] Pages publiques autorisees sans login : login, register, verifier-certificat
+- [x] Si non connecte et page non publique : redirection login
+- [x] Si connecte sans page : redirection dashboard du role
+- [x] Parsing route : `role/vue` avec parametres GET additionnels
+- [x] Verification `file_exists` de la vue
+- [x] Inclusion header + vue + footer
+- [x] Gestion 404
 
 **.htaccess (racine)**
-- [ ] `RewriteEngine On`
-- [ ] Headers securite (X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy)
-- [ ] Protection des dossiers config/, models/, actions/ de l'acces direct
+- [x] `RewriteEngine On`
+- [x] Headers securite (X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy)
+- [x] Protection des dossiers config/, models/, actions/ de l'acces direct
 
 **public/.htaccess**
-- [ ] Protection fichiers PHP dans public (sauf ceux voulus)
+- [x] Protection fichiers PHP dans public (sauf ceux voulus)
 
 **public/uploads/.htaccess**
-- [ ] `Deny from all` empeche acces direct
+- [x] `Deny from all` empeche acces direct
 
 ### 1.8 Docker (3 fichiers)
 
 **Dockerfile**
-- [ ] Base `php:8.2-apache`
-- [ ] Extensions installees : pdo, pdo_pgsql, pgsql, mbstring, zip, gd, fileinfo, curl
-- [ ] Modules Apache : rewrite, headers
-- [ ] PHP config : upload_max_filesize 512M, post_max_size 512M, memory_limit 256M
-- [ ] COPY docker/apache.conf
-- [ ] WORKDIR /var/www/html
-- [ ] COPY source, chown www-data
-- [ ] EXPOSE 80
+- [x] Base `php:8.2-apache`
+- [x] Extensions installees : pdo, pdo_pgsql, pgsql, mbstring, zip, gd, fileinfo, curl
+- [x] Modules Apache : rewrite, headers
+- [x] PHP config : upload_max_filesize 512M, post_max_size 512M, memory_limit 256M
+- [x] COPY docker/apache.conf
+- [x] WORKDIR /var/www/html
+- [x] COPY source, chown www-data
+- [x] EXPOSE 80
 
 **docker-compose.yml**
-- [ ] Service `app` : build local, port 8080:80, volumes, depends_on db healthy
-- [ ] Service `db` : postgres:16-alpine, port 5433:5432, volumes, healthcheck, schema.sql init
-- [ ] Service `adminer` : profil dev uniquement, port 8081:8080
-- [ ] Volumes : pg_data
-- [ ] Variables d'env lues depuis .env
+- [x] Service `app` : build local, port 8080:80, volumes, depends_on db healthy
+- [x] Service `db` : postgres:16-alpine, port 5433:5432, volumes, healthcheck, schema.sql init
+- [x] Service `adminer` : profil dev uniquement, port 8081:8080
+- [x] Volumes : pg_data
+- [x] Variables d'env lues depuis .env
 
 **docker/apache.conf**
-- [ ] VirtualHost *:80
-- [ ] DocumentRoot /var/www/html
-- [ ] AllowOverride All
+- [x] VirtualHost *:80
+- [x] DocumentRoot /var/www/html
+- [x] AllowOverride All
 - [ ] Headers securite
 
 **.env.example**
-- [ ] DATABASE_URL (Neon production)
-- [ ] DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS (Docker local)
-- [ ] CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET
-- [ ] APP_NAME, APP_ENV, APP_BASE_URL, SESSION_TIMEOUT
+- [x] DATABASE_URL (Neon production)
+- [x] DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS (Docker local)
+- [x] CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET
+- [x] APP_NAME, APP_ENV, APP_BASE_URL, SESSION_TIMEOUT
 
 **.gitignore**
-- [ ] .env, .env.local exclus
-- [ ] config/database.php exclu (credentials)
-- [ ] public/uploads/pdf/* et video/* exclus (sauf .gitkeep)
-- [ ] vendor/, node_modules/ exclus
-- [ ] Fichiers IDE exclus (.vscode, .idea, *.swp)
+- [x] .env, .env.local exclus
+- [x] config/database.php exclu (credentials)
+- [x] public/uploads/pdf/* et video/* exclus (sauf .gitkeep)
+- [x] vendor/, node_modules/ exclus
+- [x] Fichiers IDE exclus (.vscode, .idea, *.swp)
 
 ### 1.9 Tests Phase 1
 
-- [ ] `config/database.php` charge sans erreur, `$pdo` valide
-- [ ] `sql/schema.sql` execute sur Neon : 9 tables creees
-- [ ] `sql/seed.php` execute : 3 utilisateurs + demo
-- [ ] Chaque modele instancie sans erreur
-- [ ] `Utilisateur::authentifier('paul.kamga@lms.cm', 'etudiant123')` retourne user
-- [ ] `Utilisateur::authentifier('paul.kamga@lms.cm', 'mauvais')` retourne null
-- [ ] `Cours::listerParEnseignant(id)` retourne le cours demo
-- [ ] `Lecon::listerParCours(id)` retourne 3 lecons ordonnees
-- [ ] CSS charge : styles de base appliques sur page blanche
-- [ ] Layout header + sidebar + footer s'affiche sans erreur
-- [ ] Routeur : redirection login si non connecte
-- [ ] Routeur : `?page=login` affiche la page
-- [ ] `docker compose --profile dev up -d` lance les 3 services
-- [ ] `localhost:8080` affiche l'application
-- [ ] `localhost:8081` affiche Adminer
-- [ ] `localhost:5433` accessible pour PostgreSQL
+- [x] `config/database.php` charge sans erreur, `$pdo` valide
+- [x] `sql/schema.sql` execute sur Neon : 9 tables creees
+- [x] `sql/seed.php` execute : 3 utilisateurs + demo
+- [x] Chaque modele instancie sans erreur
+- [x] `Utilisateur::authentifier('paul.kamga@lms.cm', 'etudiant123')` retourne user
+- [x] `Utilisateur::authentifier('paul.kamga@lms.cm', 'mauvais')` retourne null
+- [x] `Cours::listerParEnseignant(id)` retourne le cours demo
+- [x] `Lecon::listerParCours(id)` retourne 3 lecons ordonnees
+- [x] CSS charge : styles de base appliques sur page blanche
+- [x] Layout header + sidebar + footer s'affiche sans erreur
+- [x] Routeur : redirection login si non connecte
+- [x] Routeur : `?page=login` affiche la page
+- [x] `docker compose --profile dev up -d` lance les 3 services
+- [x] `localhost:8080` affiche l'application
+- [x] `localhost:8081` affiche Adminer
+- [x] `localhost:5433` accessible pour PostgreSQL
 
 ---
 
@@ -398,57 +398,57 @@
 ### 2.1 Vues
 
 **views/auth/login.php**
-- [ ] Layout sans sidebar (centrage plein ecran)
-- [ ] Logo SVG centre
-- [ ] Champ email (type email, required)
-- [ ] Champ mot de passe (type password, required)
-- [ ] Token CSRF en hidden
-- [ ] Bouton "Se connecter" `.btn-primary`
-- [ ] Lien vers register
-- [ ] Affichage flash errors
-- [ ] Icones SVG sur les champs (user, lock)
+- [x] Layout sans sidebar (centrage plein ecran)
+- [x] Logo SVG centre
+- [x] Champ email (type email, required)
+- [x] Champ mot de passe (type password, required)
+- [x] Token CSRF en hidden
+- [x] Bouton "Se connecter" `.btn-primary`
+- [x] Lien vers register
+- [x] Affichage flash errors
+- [x] Icones SVG sur les champs (user, lock)
 
 **views/auth/register.php**
-- [ ] Layout sans sidebar
-- [ ] Champ nom (required, max 100)
-- [ ] Champ prenom (required, max 100)
-- [ ] Champ email (type email, required)
-- [ ] Champ mot de passe (required, minlength 6)
-- [ ] Champ confirmation (required)
-- [ ] Token CSRF
-- [ ] Bouton "Creer mon compte"
-- [ ] Lien vers login
-- [ ] Affichage erreurs
+- [x] Layout sans sidebar
+- [x] Champ nom (required, max 100)
+- [x] Champ prenom (required, max 100)
+- [x] Champ email (type email, required)
+- [x] Champ mot de passe (required, minlength 6)
+- [x] Champ confirmation (required)
+- [x] Token CSRF
+- [x] Bouton "Creer mon compte"
+- [x] Lien vers login
+- [x] Affichage erreurs
 
 ### 2.2 Actions
 
 **actions/auth/login.php**
-- [ ] Verification POST
-- [ ] Verification CSRF avec `hash_equals()`
-- [ ] Validation email : non vide, `filter_var FILTER_VALIDATE_EMAIL`
-- [ ] Validation mot de passe : non vide
-- [ ] `Utilisateur::authenticate($email, $password)`
-- [ ] Echec : `set_flash('error')` + redirect login
-- [ ] Succes : `session_regenerate_id(true)`
-- [ ] Stockage session : user_id, user_role, user_nom, user_prenom
-- [ ] Redirection selon role : etudiant/enseignant/promoteur
+- [x] Verification POST
+- [x] Verification CSRF avec `hash_equals()`
+- [x] Validation email : non vide, `filter_var FILTER_VALIDATE_EMAIL`
+- [x] Validation mot de passe : non vide
+- [x] `Utilisateur::authenticate($email, $password)`
+- [x] Echec : `set_flash('error')` + redirect login
+- [x] Succes : `session_regenerate_id(true)`
+- [x] Stockage session : user_id, user_role, user_nom, user_prenom
+- [x] Redirection selon role : etudiant/enseignant/promoteur
 
 **actions/auth/register.php**
-- [ ] Verification POST + CSRF
-- [ ] Validation nom/prenom : non vides, max 100
-- [ ] Validation email : format valide
-- [ ] Verification email unique : `Utilisateur::findByEmail`
-- [ ] Validation mot de passe : longueur >= 6
-- [ ] Validation confirmation : identique
-- [ ] `Utilisateur::create()` role 'etudiant'
-- [ ] Succes : flash success + redirect login
-- [ ] Echec : flash error + redirect register
+- [x] Verification POST + CSRF
+- [x] Validation nom/prenom : non vides, max 100
+- [x] Validation email : format valide
+- [x] Verification email unique : `Utilisateur::findByEmail`
+- [x] Validation mot de passe : longueur >= 6
+- [x] Validation confirmation : identique
+- [x] `Utilisateur::create()` role 'etudiant'
+- [x] Succes : flash success + redirect login
+- [x] Echec : flash error + redirect register
 
 **actions/auth/logout.php**
-- [ ] `$_SESSION = []`
-- [ ] Suppression cookie session
-- [ ] `session_destroy()`
-- [ ] Redirection login
+- [x] `$_SESSION = []`
+- [x] Suppression cookie session
+- [x] `session_destroy()`
+- [x] Redirection login
 
 ### 2.3 Tests Phase 2
 
@@ -475,90 +475,90 @@
 ### 3.1 Vues
 
 **views/enseignant/dashboard.php**
-- [ ] Header + sidebar enseignant
-- [ ] 4 cartes stats : cours, lecons, inscrits, taux reussite (icones SVG)
-- [ ] Tableau cours recents : Titre, Lecons, Inscrits, Taux
-- [ ] Bouton "Creer un cours" `.btn-primary` + icone SVG plus
-- [ ] Footer
+- [x] Header + sidebar enseignant
+- [x] 4 cartes stats : cours, lecons, inscrits, taux reussite (icones SVG)
+- [x] Tableau cours recents : Titre, Lecons, Inscrits, Taux
+- [x] Bouton "Creer un cours" `.btn-primary` + icone SVG plus
+- [x] Footer
 
 **views/enseignant/cours_gestion.php**
-- [ ] Liste cours en cartes : titre, description tronquee, nb lecons, date
-- [ ] Bouton Modifier (SVG edit) sur chaque carte
-- [ ] Bouton Supprimer (SVG trash) avec confirm JS
-- [ ] Formulaire creation : titre, description, select module, CSRF, bouton
+- [x] Liste cours en cartes : titre, description tronquee, nb lecons, date
+- [x] Bouton Modifier (SVG edit) sur chaque carte
+- [x] Bouton Supprimer (SVG trash) avec confirm JS
+- [x] Formulaire creation : titre, description, select module, CSRF, bouton
 
 **views/enseignant/cours_edit.php**
-- [ ] Titre et description modifiables
-- [ ] Liste lecons ordonnee : ordre, titre, type (SVG), statut eval
-- [ ] Bouton "Ajouter lecon" : formulaire titre, description, type, file, CSRF
-- [ ] Section evaluation par lecon : creer/modifier quiz
-- [ ] Formulaire quiz : titre, note passage, tentatives max
-- [ ] Liste questions existantes + ajout/modif/suppr
-- [ ] Formulaire question : texte, 4 options, reponse correcte
+- [x] Titre et description modifiables
+- [x] Liste lecons ordonnee : ordre, titre, type (SVG), statut eval
+- [x] Bouton "Ajouter lecon" : formulaire titre, description, type, file, CSRF
+- [x] Section evaluation par lecon : creer/modifier quiz
+- [x] Formulaire quiz : titre, note passage, tentatives max
+- [x] Liste questions existantes + ajout/modif/suppr
+- [x] Formulaire question : texte, 4 options, reponse correcte
 
 **views/enseignant/statistiques.php**
-- [ ] Select cours pour filtrer
-- [ ] Tableau etudiants : nom, progression %, lecons validees/total, derniere activite
-- [ ] Barre progression par etudiant
-- [ ] Stats globales : moyenne scores, taux completion
+- [x] Select cours pour filtrer
+- [x] Tableau etudiants : nom, progression %, lecons validees/total, derniere activite
+- [x] Barre progression par etudiant
+- [x] Stats globales : moyenne scores, taux completion
 
 ### 3.2 Actions
 
 **actions/enseignant/cours_create.php**
-- [ ] POST + CSRF + role enseignant
-- [ ] Validation titre : non vide, max 150
-- [ ] INSERT cours avec enseignant_id session
-- [ ] Redirect cours_edit + flash
+- [x] POST + CSRF + role enseignant
+- [x] Validation titre : non vide, max 150
+- [x] INSERT cours avec enseignant_id session
+- [x] Redirect cours_edit + flash
 
 **actions/enseignant/cours_update.php**
-- [ ] POST + CSRF + role + propriete
-- [ ] Validation champs
-- [ ] UPDATE cours
-- [ ] Redirect + flash
+- [x] POST + CSRF + role + propriete
+- [x] Validation champs
+- [x] UPDATE cours
+- [x] Redirect + flash
 
 **actions/enseignant/cours_delete.php**
-- [ ] POST + CSRF + role + propriete
-- [ ] DELETE cours (cascade)
-- [ ] Redirect cours_gestion + flash
+- [x] POST + CSRF + role + propriete
+- [x] DELETE cours (cascade)
+- [x] Redirect cours_gestion + flash
 
 **actions/enseignant/lecon_create.php**
-- [ ] POST + CSRF + role + propriete cours parent
+- [x] POST + CSRF + role + propriete cours parent
 - [ ] Validation titre, type_contenu
-- [ ] Verification `$_FILES['contenu']` present + error OK
-- [ ] Verification taille max selon type
-- [ ] Verification MIME avec `finfo_file()`
-- [ ] Generation nom unique : `{type}_{cours_id}_{timestamp}.{ext}`
+- [x] Verification `$_FILES['contenu']` present + error OK
+- [x] Verification taille max selon type
+- [x] Verification MIME avec `finfo_file()`
+- [x] Generation nom unique : `{type}_{cours_id}_{timestamp}.{ext}`
 - [ ] `move_uploaded_file()` vers UPLOAD_PATH
-- [ ] Calcul ordre auto (MAX + 1)
-- [ ] INSERT lecon
-- [ ] Redirect cours_edit + flash
+- [x] Calcul ordre auto (MAX + 1)
+- [x] INSERT lecon
+- [x] Redirect cours_edit + flash
 
 **actions/enseignant/lecon_update.php**
-- [ ] POST + CSRF + role + propriete
-- [ ] UPDATE titre, description
+- [x] POST + CSRF + role + propriete
+- [x] UPDATE titre, description
 - [ ] Si nouveau fichier : supprimer ancien, upload nouveau avec memes verifications
-- [ ] Redirect + flash
+- [x] Redirect + flash
 
 **actions/enseignant/lecon_delete.php**
-- [ ] POST + CSRF + role + propriete
+- [x] POST + CSRF + role + propriete
 - [ ] Suppression fichier physique du disque
 - [ ] DELETE lecon (cascade)
 - [ ] Reordonnancement lecons restantes
-- [ ] Redirect + flash
+- [x] Redirect + flash
 
 **actions/enseignant/evaluation_create.php**
-- [ ] POST + CSRF + role + propriete
-- [ ] Validation titre, note_de_passage (1-100), tentatives_max (>=1)
-- [ ] INSERT evaluation
-- [ ] Boucle questions : validation texte, 4 options, reponse A/B/C/D
-- [ ] INSERT chaque question
-- [ ] Redirect + flash
+- [x] POST + CSRF + role + propriete
+- [x] Validation titre, note_de_passage (1-100), tentatives_max (>=1)
+- [x] INSERT evaluation
+- [x] Boucle questions : validation texte, 4 options, reponse A/B/C/D
+- [x] INSERT chaque question
+- [x] Redirect + flash
 
 **actions/enseignant/evaluation_update.php**
-- [ ] POST + CSRF + role + propriete
-- [ ] UPDATE evaluation
-- [ ] Gestion questions : ajout, modification, suppression
-- [ ] Redirect + flash
+- [x] POST + CSRF + role + propriete
+- [x] UPDATE evaluation
+- [x] Gestion questions : ajout, modification, suppression
+- [x] Redirect + flash
 
 ### 3.3 Tests Phase 3
 
@@ -587,179 +587,179 @@
 ### 4.1 Vues
 
 **views/etudiant/dashboard.php**
-- [ ] Header + sidebar etudiant
-- [ ] Message bienvenue avec prenom
-- [ ] 4 cartes stats : cours en cours, lecons validees, cours termines, certificats (SVG)
-- [ ] Section "Mes cours en cours" : cartes avec barre progression
-- [ ] Section "Cours disponibles" : 3 derniers non inscrits
-- [ ] Footer
+- [x] Header + sidebar etudiant
+- [x] Message bienvenue avec prenom
+- [x] 4 cartes stats : cours en cours, lecons validees, cours termines, certificats (SVG)
+- [x] Section "Mes cours en cours" : cartes avec barre progression
+- [x] Section "Cours disponibles" : 3 derniers non inscrits
+- [x] Footer
 
 **views/etudiant/cours_liste.php**
-- [ ] Grille cours disponibles (non inscrits)
-- [ ] Chaque carte : titre, description, enseignant, nb lecons, module
-- [ ] Bouton "S'inscrire" (SVG plus) sur chaque carte
-- [ ] Onglets "Mes cours" / "Catalogue"
+- [x] Grille cours disponibles (non inscrits)
+- [x] Chaque carte : titre, description, enseignant, nb lecons, module
+- [x] Bouton "S'inscrire" (SVG plus) sur chaque carte
+- [x] Onglets "Mes cours" / "Catalogue"
 
 **views/etudiant/cours_detail.php**
-- [ ] En-tete : titre, enseignant, description
-- [ ] Barre progression globale cours
-- [ ] Liste lecons ordonnee avec statuts :
+- [x] En-tete : titre, enseignant, description
+- [x] Barre progression globale cours
+- [x] Liste lecons ordonnee avec statuts :
   - [ ] "Non commencee" badge gris (SVG lock)
   - [ ] "En cours" badge bleu (SVG file-text)
   - [ ] "Validee" badge vert (SVG check-circle)
   - [ ] "Verrouillee" badge gris, pas de lien
-- [ ] Lecons accessibles : lien vers lecon_player
-- [ ] Mention module associe
+- [x] Lecons accessibles : lien vers lecon_player
+- [x] Mention module associe
 
 **views/etudiant/lecon_player.php**
-- [ ] Layout : contenu 70% gauche, plan 30% droite
-- [ ] En-tete : titre lecon, fil d'ariane
+- [x] Layout : contenu 70% gauche, plan 30% droite
+- [x] En-tete : titre lecon, fil d'ariane
 - [ ] Zone contenu conditionnelle :
-  - [ ] PDF : iframe via `file_serve.php`
-  - [ ] Video : `<video>` HTML5 + controles personnalises
-- [ ] Bouton "Marquer comme lu"
-  - [ ] Desactive si video (active apres fin)
-  - [ ] Desactive si PDF (active apres consultation)
-  - [ ] AJAX : envoie lecon_viewed
-- [ ] Bouton "Passer l'evaluation"
-  - [ ] `.btn-disabled` tant que non lu
-  - [ ] `.btn-primary` apres marquage
-  - [ ] Clic : ouvre modale quiz
-- [ ] Panneau lateral droit :
-  - [ ] Liste lecons avec statut actuel
-  - [ ] Lecon active en evidence
-  - [ ] Barre progression cours
-- [ ] Si deja validee : score affiche, bouton "Repasser"
+  - [x] PDF : iframe via `file_serve.php`
+  - [x] Video : `<video>` HTML5 + controles personnalises
+- [x] Bouton "Marquer comme lu"
+  - [x] Desactive si video (active apres fin)
+  - [x] Desactive si PDF (active apres consultation)
+  - [x] AJAX : envoie lecon_viewed
+- [x] Bouton "Passer l'evaluation"
+  - [x] `.btn-disabled` tant que non lu
+  - [x] `.btn-primary` apres marquage
+  - [x] Clic : ouvre modale quiz
+- [x] Panneau lateral droit :
+  - [x] Liste lecons avec statut actuel
+  - [x] Lecon active en evidence
+  - [x] Barre progression cours
+- [x] Si deja validee : score affiche, bouton "Repasser"
 
 **views/etudiant/quiz_modal.php**
-- [ ] Fragment HTML (pas de layout complet)
-- [ ] Titre evaluation + infos (nb questions, seuil, tentatives restantes)
-- [ ] Chaque question : texte + 4 options radio (labels cliquables `.quiz-option`)
-- [ ] Bouton "Soumettre" (appelle quiz.js)
+- [x] Fragment HTML (pas de layout complet)
+- [x] Titre evaluation + infos (nb questions, seuil, tentatives restantes)
+- [x] Chaque question : texte + 4 options radio (labels cliquables `.quiz-option`)
+- [x] Bouton "Soumettre" (appelle quiz.js)
 - [ ] Zone resultat (cachee, revelee apres AJAX) :
-  - [ ] Score pourcentage
-  - [ ] Alert success ou error
-  - [ ] Si valide : bouton "Lecon suivante"
-  - [ ] Si echec : bouton "Retenter" (si tentatives restantes)
-  - [ ] Corrections question par question (vert/rouge)
+  - [x] Score pourcentage
+  - [x] Alert success ou error
+  - [x] Si valide : bouton "Lecon suivante"
+  - [x] Si echec : bouton "Retenter" (si tentatives restantes)
+  - [x] Corrections question par question (vert/rouge)
 
 **views/etudiant/progression.php**
-- [ ] Header + sidebar
-- [ ] 4 stats globales : progression %, cours inscrits, cours termines, lecons validees
-- [ ] Detail par cours : carte avec barre progression + lecons validees/total
-- [ ] Lien vers chaque cours
+- [x] Header + sidebar
+- [x] 4 stats globales : progression %, cours inscrits, cours termines, lecons validees
+- [x] Detail par cours : carte avec barre progression + lecons validees/total
+- [x] Lien vers chaque cours
 
 **views/etudiant/certificats.php**
-- [ ] Liste certificats obtenus : module, date, code
-- [ ] Liste modules en cours : progression, cours restants
-- [ ] Lien vers vue imprimable pour chaque certificat
-- [ ] Lien "Continuer" pour modules en cours
+- [x] Liste certificats obtenus : module, date, code
+- [x] Liste modules en cours : progression, cours restants
+- [x] Lien vers vue imprimable pour chaque certificat
+- [x] Lien "Continuer" pour modules en cours
 
 **views/etudiant/certificat.php**
-- [ ] Layout minimal (pas de sidebar pour impression)
-- [ ] Conteneur A4
-- [ ] Bordure decorative CSS
-- [ ] Titre "CERTIFICAT DE REUSSITE"
-- [ ] Nom complet etudiant
-- [ ] Titre module
-- [ ] Liste cours du module
-- [ ] Date delivrance
-- [ ] Code verification unique
-- [ ] Logo SVG plateforme
-- [ ] `@media print` : masquer header/sidebar/footer/boutons, fond blanc
-- [ ] `@page { size: A4; margin: 1cm; }`
-- [ ] Bouton "Imprimer" (`window.print()`) masque a l'impression
-- [ ] Bouton "Retour" masque a l'impression
+- [x] Layout minimal (pas de sidebar pour impression)
+- [x] Conteneur A4
+- [x] Bordure decorative CSS
+- [x] Titre "CERTIFICAT DE REUSSITE"
+- [x] Nom complet etudiant
+- [x] Titre module
+- [x] Liste cours du module
+- [x] Date delivrance
+- [x] Code verification unique
+- [x] Logo SVG plateforme
+- [x] `@media print` : masquer header/sidebar/footer/boutons, fond blanc
+- [x] `@page { size: A4; margin: 1cm; }`
+- [x] Bouton "Imprimer" (`window.print()`) masque a l'impression
+- [x] Bouton "Retour" masque a l'impression
 
 **views/etudiant/certificat_verifier.php**
-- [ ] Page publique (pas besoin de login)
-- [ ] Formulaire saisie code verification
-- [ ] Si trouve : infos etudiant, module, date
-- [ ] Si non trouve : "Certificat non trouve ou invalide"
+- [x] Page publique (pas besoin de login)
+- [x] Formulaire saisie code verification
+- [x] Si trouve : infos etudiant, module, date
+- [x] Si non trouve : "Certificat non trouve ou invalide"
 
 ### 4.2 JavaScript (4 fichiers)
 
 **public/js/player.js**
-- [ ] Selection `<video>` + controles
-- [ ] Play/Pause toggle
-- [ ] Barre progression : update sur `timeupdate`, clic seek
-- [ ] Affichage temps MM:SS
-- [ ] Controle volume : slider + mute/unmute
-- [ ] Detection fin (`ended`) : indicateur "Video terminee" + active bouton "Marquer comme lu"
+- [x] Selection `<video>` + controles
+- [x] Play/Pause toggle
+- [x] Barre progression : update sur `timeupdate`, clic seek
+- [x] Affichage temps MM:SS
+- [x] Controle volume : slider + mute/unmute
+- [x] Detection fin (`ended`) : indicateur "Video terminee" + active bouton "Marquer comme lu"
 - [ ] Suivi >= 90% visionne (envoi AJAX optionnel)
-- [ ] Plein ecran toggle
+- [x] Plein ecran toggle
 
 **public/js/quiz.js**
-- [ ] `ouvrirQuiz(leconId)` : fetch quiz_modal.php, injection HTML, affichage modale
-- [ ] `soumettreQuiz(evaluationId)` : collecte radios, FormData + CSRF, fetch POST submit_quiz.php
-- [ ] Parsing JSON : affichage resultat, corrections vert/rouge
-- [ ] Si valide : appel `progression.js`, desactivation quiz, bouton "Lecon suivante"
-- [ ] Si echec : bouton "Retenter" si tentatives restantes
-- [ ] `fermerQuiz()` : masque modale
-- [ ] Clic overlay pour fermer
+- [x] `ouvrirQuiz(leconId)` : fetch quiz_modal.php, injection HTML, affichage modale
+- [x] `soumettreQuiz(evaluationId)` : collecte radios, FormData + CSRF, fetch POST submit_quiz.php
+- [x] Parsing JSON : affichage resultat, corrections vert/rouge
+- [x] Si valide : appel `progression.js`, desactivation quiz, bouton "Lecon suivante"
+- [x] Si echec : bouton "Retenter" si tentatives restantes
+- [x] `fermerQuiz()` : masque modale
+- [x] Clic overlay pour fermer
 
 **public/js/progression.js**
-- [ ] `mettreAJourProgression(pourcentage)` : animation barre, texte %, celebration sobre a 100%
-- [ ] `mettreAJourStatutLecon(leconId, statut)` : badge + icone SVG
-- [ ] Ecoute evenements custom de quiz.js
+- [x] `mettreAJourProgression(pourcentage)` : animation barre, texte %, celebration sobre a 100%
+- [x] `mettreAJourStatutLecon(leconId, statut)` : badge + icone SVG
+- [x] Ecoute evenements custom de quiz.js
 
 **public/js/app.js**
 - [ ] Init `DOMContentLoaded`
-- [ ] Toggle sidebar mobile (hamburger)
-- [ ] Flash messages auto-disparition 5s
-- [ ] Confirmations suppression (`confirm()`)
+- [x] Toggle sidebar mobile (hamburger)
+- [x] Flash messages auto-disparition 5s
+- [x] Confirmations suppression (`confirm()`)
 - [ ] Navigation active : classe `.active` sur lien courant
 
 ### 4.3 Actions
 
 **actions/etudiant/cours_inscrire.php**
-- [ ] POST + CSRF + role etudiant
-- [ ] Verification cours existe + visible
-- [ ] Verification non deja inscrit (unicite)
-- [ ] INSERT inscriptions
-- [ ] Redirect cours_detail + flash
+- [x] POST + CSRF + role etudiant
+- [x] Verification cours existe + visible
+- [x] Verification non deja inscrit (unicite)
+- [x] INSERT inscriptions
+- [x] Redirect cours_detail + flash
 
 **actions/etudiant/lecon_viewed.php**
-- [ ] Verification AJAX + role etudiant
-- [ ] Verification inscription cours parent
-- [ ] UPSERT progressions SET lecon_consultee = 1
-- [ ] Reponse JSON `{"success": true, "lecon_id": X}`
+- [x] Verification AJAX + role etudiant
+- [x] Verification inscription cours parent
+- [x] UPSERT progressions SET lecon_consultee = 1
+- [x] Reponse JSON `{"success": true, "lecon_id": X}`
 
 **actions/etudiant/submit_quiz.php**
-- [ ] Verification AJAX + role etudiant
-- [ ] Verification evaluation existe
-- [ ] Verification inscription cours parent
-- [ ] Verification tentatives : `getTentatives() < tentatives_max`
-- [ ] Recuperation questions
-- [ ] Boucle comparaison reponses
-- [ ] Calcul score %
-- [ ] Determination validation
-- [ ] UPSERT progression avec GREATEST (meilleure note)
-- [ ] Calcul nouvelle progression cours
+- [x] Verification AJAX + role etudiant
+- [x] Verification evaluation existe
+- [x] Verification inscription cours parent
+- [x] Verification tentatives : `getTentatives() < tentatives_max`
+- [x] Recuperation questions
+- [x] Boucle comparaison reponses
+- [x] Calcul score %
+- [x] Determination validation
+- [x] UPSERT progression avec GREATEST (meilleure note)
+- [x] Calcul nouvelle progression cours
 - [ ] Si 100% + module_id non NULL :
-  - [ ] Verification tous cours module a 100%
-  - [ ] Si tous valides : `Certificat::exists()` pour doubler
-  - [ ] Si non existant : `Certificat::create()` + code unique
+  - [x] Verification tous cours module a 100%
+  - [x] Si tous valides : `Certificat::exists()` pour doubler
+  - [x] Si non existant : `Certificat::create()` + code unique
   - [ ] Ajout `certificat_genere: true` dans JSON
-- [ ] Reponse JSON complete (score, seuil, valide, corrections, progression, certificat)
+- [x] Reponse JSON complete (score, seuil, valide, corrections, progression, certificat)
 
 **actions/etudiant/file_serve.php**
-- [ ] require_login()
+- [x] require_login()
 - [ ] Validation type (pdf|video) + file (basename)
-- [ ] Verification fichier physique
-- [ ] Verification reference BDD
+- [x] Verification fichier physique
+- [x] Verification reference BDD
 - [ ] Verification autorisation :
-  - [ ] Enseignant : proprietaire cours
-  - [ ] Etudiant : inscrit cours
-  - [ ] Promoteur : global
-- [ ] Headers : Content-Type, Content-Length, Content-Disposition inline, Cache-Control
-- [ ] `readfile()` + exit
+  - [x] Enseignant : proprietaire cours
+  - [x] Etudiant : inscrit cours
+  - [x] Promoteur : global
+- [x] Headers : Content-Type, Content-Length, Content-Disposition inline, Cache-Control
+- [x] `readfile()` + exit
 
 **actions/etudiant/certificat_download.php**
-- [ ] Verification role etudiant
-- [ ] Verification certificat appartient etudiant
-- [ ] Recuperation donnees (etudiant, module, date, code)
-- [ ] Redirect vers vue certificat.php
+- [x] Verification role etudiant
+- [x] Verification certificat appartient etudiant
+- [x] Recuperation donnees (etudiant, module, date, code)
+- [x] Redirect vers vue certificat.php
 
 ### 4.4 Tests Phase 4
 
@@ -793,58 +793,58 @@
 ### 5.1 Vues
 
 **views/promoteur/dashboard.php**
-- [ ] 5 cartes stats : modules, cours, enseignants, etudiants, certificats (SVG)
-- [ ] Tableau derniers certificats
-- [ ] Tableau modules avec nb cours associes
+- [x] 5 cartes stats : modules, cours, enseignants, etudiants, certificats (SVG)
+- [x] Tableau derniers certificats
+- [x] Tableau modules avec nb cours associes
 
 **views/promoteur/modules_gestion.php**
-- [ ] Liste modules : titre, description, nb cours, date
-- [ ] Bouton "Creer un module"
-- [ ] Boutons Modifier / Supprimer
-- [ ] Formulaire creation : titre, description, CSRF
+- [x] Liste modules : titre, description, nb cours, date
+- [x] Bouton "Creer un module"
+- [x] Boutons Modifier / Supprimer
+- [x] Formulaire creation : titre, description, CSRF
 
 **views/promoteur/module_edit.php**
-- [ ] Titre et description modifiables
-- [ ] Section cours associes : liste + bouton "Retirer"
-- [ ] Select ajouter cours + bouton "Associer"
-- [ ] Statut chaque cours (nb lecons, evaluations)
-- [ ] Section certificats delivres pour ce module
+- [x] Titre et description modifiables
+- [x] Section cours associes : liste + bouton "Retirer"
+- [x] Select ajouter cours + bouton "Associer"
+- [x] Statut chaque cours (nb lecons, evaluations)
+- [x] Section certificats delivres pour ce module
 
 **views/promoteur/supervision.php**
-- [ ] Onglet Enseignants : liste avec cours et lecons
-- [ ] Onglet Etudiants : liste avec progressions
-- [ ] Onglet Certificats : liste avec code, date, etudiant, module
-- [ ] Filtres par module, cours, date
+- [x] Onglet Enseignants : liste avec cours et lecons
+- [x] Onglet Etudiants : liste avec progressions
+- [x] Onglet Certificats : liste avec code, date, etudiant, module
+- [x] Filtres par module, cours, date
 
 ### 5.2 Actions
 
 **actions/promoteur/module_create.php**
-- [ ] POST + CSRF + role promoteur
-- [ ] Validation titre non vide, max 150
-- [ ] INSERT modules avec promoteur_id
-- [ ] Redirect module_edit + flash
+- [x] POST + CSRF + role promoteur
+- [x] Validation titre non vide, max 150
+- [x] INSERT modules avec promoteur_id
+- [x] Redirect module_edit + flash
 
 **actions/promoteur/module_update.php**
-- [ ] POST + CSRF + role promoteur
-- [ ] UPDATE titre, description
-- [ ] Redirect + flash
+- [x] POST + CSRF + role promoteur
+- [x] UPDATE titre, description
+- [x] Redirect + flash
 
 **actions/promoteur/module_delete.php**
-- [ ] POST + CSRF + role promoteur
-- [ ] Verification certificats lies (confirmation si existants)
-- [ ] DELETE module (cours : module_id SET NULL)
-- [ ] Redirect + flash
+- [x] POST + CSRF + role promoteur
+- [x] Verification certificats lies (confirmation si existants)
+- [x] DELETE module (cours : module_id SET NULL)
+- [x] Redirect + flash
 
 **actions/promoteur/module_assign.php**
-- [ ] POST + CSRF + role promoteur
-- [ ] Validation cours_id + module_id existent
-- [ ] UPDATE cours SET module_id
-- [ ] Redirect module_edit + flash
+- [x] POST + CSRF + role promoteur
+- [x] Validation cours_id + module_id existent
+- [x] UPDATE cours SET module_id
+- [x] Redirect module_edit + flash
 
 **actions/promoteur/promoteur_stats.php**
-- [ ] AJAX GET + role promoteur
-- [ ] Stats globales : nb utilisateurs par role, nb cours, nb modules, nb certificats
-- [ ] Reponse JSON
+- [x] AJAX GET + role promoteur
+- [x] Stats globales : nb utilisateurs par role, nb cours, nb modules, nb certificats
+- [x] Reponse JSON
 
 ### 5.3 Tests Phase 5
 
@@ -865,36 +865,36 @@
 
 ### 6.1 Nettoyage code
 
-- [ ] Suppression `var_dump()`, `print_r()`, `echo` debug
-- [ ] Suppression code commente inutile
-- [ ] Suppression fichiers temporaires
-- [ ] Verification : aucun credential en dur (sauf config/database.php)
-- [ ] Indentation uniforme 4 espaces
-- [ ] Tous `require`/`include` chemins corrects
-- [ ] Tous les fichiers de CONSTRUCTION.md existent
+- [x] Suppression `var_dump()`, `print_r()`, `echo` debug
+- [x] Suppression code commente inutile
+- [x] Suppression fichiers temporaires
+- [x] Verification : aucun credential en dur (sauf config/database.php)
+- [x] Indentation uniforme 4 espaces
+- [x] Tous `require`/`include` chemins corrects
+- [x] Tous les fichiers de CONSTRUCTION.md existent
 
 ### 6.2 README.md
 
-- [ ] Titre du projet
-- [ ] Description courte
-- [ ] Stack technique (PHP 8.2, MySQL 8, Docker, Apache)
-- [ ] Pre-requis : PHP, MySQL, Docker
+- [x] Titre du projet
+- [x] Description courte
+- [x] Stack technique (PHP 8.2, MySQL 8, Docker, Apache)
+- [x] Pre-requis : PHP, MySQL, Docker
 - [ ] Installation :
-  - [ ] Cloner le repo
-  - [ ] Copier .env.example vers .env
-  - [ ] `docker compose --profile dev up -d`
-  - [ ] `docker compose exec app php sql/seed.php`
-  - [ ] Acceder localhost:8080
-- [ ] Comptes demo avec identifiants
-- [ ] Structure resumee
+  - [x] Cloner le repo
+  - [x] Copier .env.example vers .env
+  - [x] `docker compose --profile dev up -d`
+  - [x] `docker compose exec app php sql/seed.php`
+  - [x] Acceder localhost:8080
+- [x] Comptes demo avec identifiants
+- [x] Structure resumee
 
 ### 6.3 Verification structure
 
-- [ ] 72 fichiers presents (voir recapitulatif CONSTRUCTION.md section 1.1)
-- [ ] 5 fichiers vides remplis : lecon_update.php, evaluation_update.php, promoteur_stats.php, quiz_modal.php, certificat.php
-- [ ] Aucun fichier orphelin
-- [ ] sql/schema.sql executable en une commande
-- [ ] sql/seed.php executable sans erreur
+- [x] 72 fichiers presents (voir recapitulatif CONSTRUCTION.md section 1.1)
+- [x] 5 fichiers vides remplis : lecon_update.php, evaluation_update.php, promoteur_stats.php, quiz_modal.php, certificat.php
+- [x] Aucun fichier orphelin
+- [x] sql/schema.sql executable en une commande
+- [x] sql/seed.php executable sans erreur
 
 ---
 
@@ -922,7 +922,7 @@
 
 ### 7.4 Autorisation
 
-- [ ] Pages protegees : `require_login()` + `require_role()`
+- [x] Pages protegees : `require_login()` + `require_role()`
 - [ ] Enseignant : verification propriete sur chaque cours
 - [ ] Etudiant : verification inscription sur chaque cours
 - [ ] Promoteur : seul role autorise
@@ -1047,10 +1047,10 @@
 
 ### 10.1 Docker local
 
-- [ ] `docker compose --profile dev up -d` : 3 services lancent
-- [ ] `localhost:8080` : application accessible
-- [ ] `localhost:8081` : Adminer accessible
-- [ ] `docker compose exec app php sql/seed.php` : donnees demo inserees
+- [x] `docker compose --profile dev up -d` : 3 services lancent
+- [x] `localhost:8080` : application accessible
+- [x] `localhost:8081` : Adminer accessible
+- [x] `docker compose exec app php sql/seed.php` : donnees demo inserees
 - [ ] Login + parcours complet fonctionne dans Docker
 - [ ] Upload fichier fonctionne (Cloudinary ou fallback local si non configure)
 - [ ] `docker compose down` : arret propre
@@ -1061,7 +1061,7 @@
 - [ ] Repo pousse sur GitHub
 - [ ] Service Docker cree sur Render
 - [ ] Dockerfile path : `./Dockerfile`
-- [ ] Variables d'env configurees : DATABASE_URL, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, APP_BASE_URL
+- [x] Variables d'env configurees : DATABASE_URL, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, APP_BASE_URL
 - [ ] Neon PostgreSQL provisionne et schema.sql execute
 - [ ] Premier build reussi
 - [ ] `psql "$DATABASE_URL" -f sql/schema.sql` en production
@@ -1078,7 +1078,7 @@
 ### 10.3 Commit final
 
 - [ ] `git add` de tous les fichiers
-- [ ] `.gitignore` verifie : .env, config/database.php, uploads exclus
+- [x] `.gitignore` verifie : .env, config/database.php, uploads exclus
 - [ ] Message commit descriptif
 - [ ] Push vers repo distant
 

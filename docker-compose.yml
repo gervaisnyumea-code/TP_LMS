@@ -12,7 +12,6 @@ services:
       db:
         condition: service_healthy
     environment:
-      - DATABASE_URL=pgsql://lms_user:lms_password@db:5432/lms_cameroun
       - DB_HOST=db
       - DB_PORT=5432
       - DB_NAME=${DB_NAME:-lms_cameroun}

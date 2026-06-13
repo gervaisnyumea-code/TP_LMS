@@ -1,24 +1,36 @@
 /* public/css/variables.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
-    /* Colors */
-    --color-primary: #1B3A5C;
-    --color-secondary: #2E6B9E;
-    --color-accent: #3D8ECF;
+    /* Light Theme (Default) */
+    --color-primary: #2563EB;
+    --color-primary-hover: #1D4ED8;
+    --color-secondary: #4F46E5;
+    --color-accent: #3B82F6;
     
-    --color-success: #2D7D46;
-    --color-error: #B5352A;
-    --color-warning: #C47F17;
-    --color-locked: #8C8C8C;
+    --color-success: #10B981;
+    --color-success-bg: #D1FAE5;
+    --color-error: #EF4444;
+    --color-error-bg: #FEE2E2;
+    --color-warning: #F59E0B;
+    --color-warning-bg: #FEF3C7;
+    --color-locked: #9CA3AF;
+    --color-locked-bg: #F3F4F6;
     
-    --color-bg: #F5F6F8;
+    --color-bg: #F9FAFB;
     --color-surface: #FFFFFF;
-    --color-border: #D9DCE1;
+    --color-surface-hover: #F3F4F6;
+    --color-border: #E5E7EB;
     
-    --color-text: #1A1A2E;
+    --color-text: #111827;
     --color-text-muted: #6B7280;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
     /* Typography */
-    --font-family: 'Inter', system-ui, sans-serif;
+    --font-family: 'Poppins', system-ui, sans-serif;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-md: 1rem;
@@ -38,27 +50,51 @@
     --spacing-10: 4rem;
 
     /* Border Radius */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
     --radius-full: 9999px;
 
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
     /* Transitions */
-    --transition-fast: 150ms ease;
-    --transition-normal: 250ms ease;
-    --transition-slow: 400ms ease;
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
     /* Z-Index */
     --z-sidebar: 100;
     --z-overlay: 150;
     --z-modal: 200;
     --z-toast: 300;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --color-primary: #3B82F6;
+    --color-primary-hover: #60A5FA;
+    --color-secondary: #6366F1;
+    --color-accent: #2563EB;
+    
+    --color-success: #34D399;
+    --color-success-bg: rgba(16, 185, 129, 0.2);
+    --color-error: #F87171;
+    --color-error-bg: rgba(239, 68, 68, 0.2);
+    --color-warning: #FBBF24;
+    --color-warning-bg: rgba(245, 158, 11, 0.2);
+    --color-locked: #6B7280;
+    --color-locked-bg: rgba(107, 114, 128, 0.2);
+    
+    --color-bg: #0F172A;
+    --color-surface: #1E293B;
+    --color-surface-hover: #334155;
+    --color-border: #334155;
+    
+    --color-text: #F9FAFB;
+    --color-text-muted: #9CA3AF;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
 }
 
 /* Breakpoints reference:

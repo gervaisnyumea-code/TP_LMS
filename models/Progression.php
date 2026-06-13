@@ -89,7 +89,7 @@ class Progression
         $stmt_validees = $this->pdo->prepare("
             SELECT COUNT(*) FROM progressions p
             JOIN lecons l ON l.id = p.lecon_id
-            WHERE p.etudiant_id = ? AND l.cours_id = ? AND p.valide = 1
+            WHERE p.etudiant_id = ? AND l.cours_id = ? AND p.valide = TRUE
         ");
         $stmt_validees->execute([$etudiant_id, $cours_id]);
         $validees = (int) $stmt_validees->fetchColumn();
@@ -143,7 +143,7 @@ class Progression
         $stmt = $this->pdo->prepare("
             SELECT l.id, l.titre, l.ordre,
                    COUNT(DISTINCT p.etudiant_id) as nb_tentatives_total,
-                   SUM(CASE WHEN p.valide = 1 THEN 1 ELSE 0 END) as nb_validations,
+                   SUM(CASE WHEN p.valide = TRUE THEN 1 ELSE 0 END) as nb_validations,
                    ROUND(AVG(p.note_obtenue), 1) as note_moyenne
             FROM lecons l
             LEFT JOIN progressions p ON p.lecon_id = l.id

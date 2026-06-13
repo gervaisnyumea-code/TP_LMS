@@ -44,7 +44,7 @@ async function soumettreEvaluation(evaluationId) {
                     <div>
                         <h3 class="font-bold">Félicitations !</h3>
                         <p>Vous avez obtenu la note de <strong>${data.score}%</strong>. Cette leçon est validée.</p>
-                        ${data.certificat_genere ? `<p class="mt-2 text-success font-bold">🎉 Vous avez terminé ce module ! Votre certificat a été généré.</p>` : ''}
+                        ${data.certificat_genere ? `<p class="mt-2 text-success font-bold"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg> Vous avez terminé ce module ! Votre certificat a été généré.</p>` : ''}
                         <div class="mt-3">
                             <a href="${baseUrl}/index.php?page=etudiant/cours&id=${data.cours_id}" class="btn btn-primary btn-sm">Retour au plan du cours</a>
                         </div>

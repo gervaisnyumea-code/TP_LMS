@@ -41,39 +41,30 @@ class Module
     public function listerTous(): array
     {
         $stmt = $this->pdo->query("
-            SELECT m.*, 
+            SELECT m.*,
                    COUNT(DISTINCT c.id) as nb_cours,
                    u.nom as promoteur_nom, u.prenom as promoteur_prenom
             FROM modules m
             LEFT JOIN cours c ON c.module_id = m.id
             LEFT JOIN utilisateurs u ON u.id = m.promoteur_id
-            GROUP BY m.id
+            GROUP BY m.id, u.nom, u.prenom
             ORDER BY m.date_creation DESC
         ");
         return $stmt->fetchAll();
     }
 
-    /**
-     * Associer un cours a un module.
-     */
     public function associerCours(int $module_id, int $cours_id): bool
     {
         $stmt = $this->pdo->prepare("UPDATE cours SET module_id = ? WHERE id = ?");
         return $stmt->execute([$module_id, $cours_id]);
     }
 
-    /**
-     * Dissocier un cours d'un module.
-     */
     public function dissocierCours(int $cours_id): bool
     {
         $stmt = $this->pdo->prepare("UPDATE cours SET module_id = NULL WHERE id = ?");
         return $stmt->execute([$cours_id]);
     }
 
-    /**
-     * Lister les cours d'un module.
-     */
     public function listerCours(int $module_id): array
     {
         $stmt = $this->pdo->prepare("
@@ -83,16 +74,13 @@ class Module
             LEFT JOIN utilisateurs u ON u.id = c.enseignant_id
             LEFT JOIN lecons l ON l.cours_id = c.id
             WHERE c.module_id = ?
-            GROUP BY c.id
+            GROUP BY c.id, u.nom, u.prenom
             ORDER BY c.titre
         ");
         $stmt->execute([$module_id]);
         return $stmt->fetchAll();
     }
 
-    /**
-     * Lister les cours NON associes a un module (pour l'association).
-     */
     public function listerCoursDisponibles(): array
     {
         $stmt = $this->pdo->query("

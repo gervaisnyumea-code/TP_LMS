@@ -5,7 +5,7 @@ $lecon = $leconModel->trouverParId($lecon_id);
 if (!$lecon) rediriger('etudiant/catalogue');
 
 $cours_id = $lecon['cours_id'];
-if (!$coursModel->estInscrit($cours_id, $_SESSION['user_id'])) {
+if (!$coursModel->estInscrit($_SESSION['user_id'], $cours_id)) {
     set_flash('error', 'Accès non autorisé.');
     rediriger('etudiant/catalogue');
 }

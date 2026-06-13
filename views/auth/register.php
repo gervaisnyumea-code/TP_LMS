@@ -16,6 +16,12 @@ $base_url = base_url();
     <link rel="stylesheet" href="<?= $base_url ?>/public/css/base.css">
     <link rel="stylesheet" href="<?= $base_url ?>/public/css/components.css">
     <link rel="stylesheet" href="<?= $base_url ?>/public/css/pages.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('lms_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
 <body class="auth-layout">
     <div class="auth-card" style="max-width: 500px;">

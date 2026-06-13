@@ -3,13 +3,15 @@
     display: flex;
     height: 100vh;
     overflow: hidden;
+    background-color: var(--color-bg);
 }
 
 /* Sidebar */
 .sidebar {
     width: 260px;
-    background-color: var(--color-primary);
-    color: var(--color-surface);
+    background-color: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+    color: var(--color-text);
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -23,35 +25,38 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--color-border);
     font-weight: 700;
     font-size: var(--font-size-xl);
-    color: var(--color-surface);
+    color: var(--color-primary);
 }
 
 .sidebar-header svg {
     width: 28px;
     height: 28px;
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .sidebar-user {
     padding: var(--spacing-4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-1);
+    background-color: var(--color-surface-hover);
 }
 
 .sidebar-user-name {
     font-weight: 600;
+    color: var(--color-text);
 }
 
 .sidebar-user-role {
     font-size: var(--font-size-xs);
-    color: var(--color-accent);
+    color: var(--color-primary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    font-weight: 500;
 }
 
 .sidebar-nav {
@@ -68,7 +73,7 @@
     padding: 0 var(--spacing-4);
     margin-bottom: var(--spacing-2);
     font-size: var(--font-size-xs);
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 600;
@@ -79,46 +84,54 @@
     align-items: center;
     gap: var(--spacing-3);
     padding: var(--spacing-2) var(--spacing-4);
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text-muted);
     transition: all var(--transition-fast);
+    text-decoration: none;
+    font-weight: 500;
+    border-left: 3px solid transparent;
 }
 
 .sidebar-link svg {
     width: 20px;
     height: 20px;
-    opacity: 0.8;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast), color var(--transition-fast);
 }
 
-.sidebar-link:hover, .sidebar-link.active {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--color-surface);
-    border-left: 3px solid var(--color-accent);
-}
 .sidebar-link:hover {
-    border-left-color: transparent;
+    background-color: var(--color-surface-hover);
+    color: var(--color-text);
 }
+
 .sidebar-link.active {
-    border-left-color: var(--color-accent);
-    background-color: rgba(61, 142, 207, 0.15);
+    background-color: rgba(59, 130, 246, 0.05);
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
 }
 
 .sidebar-link.active svg {
     opacity: 1;
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .sidebar-footer {
     padding: var(--spacing-4);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .sidebar-logout {
     display: flex;
     align-items: center;
     gap: var(--spacing-2);
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text-muted);
     transition: color var(--transition-fast);
+    text-decoration: none;
+    font-weight: 500;
 }
+
 .sidebar-logout:hover {
     color: var(--color-error);
 }
@@ -149,6 +162,25 @@
     border: none;
     cursor: pointer;
     padding: var(--spacing-2);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: transparent;
+    color: var(--color-text-muted);
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-2);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.theme-toggle:hover {
+    background-color: var(--color-surface-hover);
+    color: var(--color-text);
 }
 
 .main-content {
@@ -189,7 +221,8 @@
     display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(26, 26, 46, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
     z-index: var(--z-overlay);
     opacity: 0;
     visibility: hidden;

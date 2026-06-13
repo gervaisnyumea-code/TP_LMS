@@ -32,7 +32,7 @@ class Utilisateur
      */
     public function authentifier(string $email, string $mot_de_passe): ?array
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE email = ? AND actif = 1");
+        $stmt = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE email = ? AND actif = TRUE");
         $stmt->execute([$email]);
         $user = $stmt->fetch();
 
