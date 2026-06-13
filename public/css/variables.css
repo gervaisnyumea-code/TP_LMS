@@ -1,0 +1,69 @@
+/* public/css/variables.css */
+:root {
+    /* Colors */
+    --color-primary: #1B3A5C;
+    --color-secondary: #2E6B9E;
+    --color-accent: #3D8ECF;
+    
+    --color-success: #2D7D46;
+    --color-error: #B5352A;
+    --color-warning: #C47F17;
+    --color-locked: #8C8C8C;
+    
+    --color-bg: #F5F6F8;
+    --color-surface: #FFFFFF;
+    --color-border: #D9DCE1;
+    
+    --color-text: #1A1A2E;
+    --color-text-muted: #6B7280;
+
+    /* Typography */
+    --font-family: 'Inter', system-ui, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+
+    /* Spacing */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-5: 1.5rem;
+    --spacing-6: 2rem;
+    --spacing-8: 3rem;
+    --spacing-10: 4rem;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 400ms ease;
+
+    /* Z-Index */
+    --z-sidebar: 100;
+    --z-overlay: 150;
+    --z-modal: 200;
+    --z-toast: 300;
+}
+
+/* Breakpoints reference:
+   sm: 640px
+   md: 768px
+   lg: 1024px
+   xl: 1280px
+*/

@@ -1,0 +1,26 @@
+RewriteEngine On
+
+# Rediriger vers index.php si le fichier/dossier n'existe pas
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+
+# Proteger les fichiers sensibles
+<FilesMatch "\.(php|sql|md)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>
+
+# Autoriser index.php
+<Files "index.php">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+</Files>
+
+# Desactiver le listing des repertoires
+Options -Indexes
+
+# Charset UTF-8
+AddDefaultCharset UTF-8
