@@ -176,6 +176,9 @@ switch ($page) {
         require __DIR__ . '/actions/enseignant/evaluation_update.php';
         break;
 
+    case 'promoteur/enseignant_create':
+        require __DIR__ . '/actions/promoteur/enseignant_create.php';
+        break;
     case 'promoteur/module_create':
         require __DIR__ . '/actions/promoteur/module_create.php';
         break;

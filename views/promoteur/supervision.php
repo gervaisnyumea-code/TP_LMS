@@ -24,6 +24,18 @@ $certificats = $certificatModel->listerTous();
     <div class="card-body p-0">
         <!-- Onglet Enseignants -->
         <div id="tab-enseignants" class="tab-content active">
+            <div class="card mb-4">
+                <div class="card-header"><h3 class="font-semibold">Créer un enseignant</h3></div>
+                <div class="card-body">
+                    <form action="<?= base_url('index.php?page=promoteur/enseignant_create') ?>" method="POST" class="d-grid gap-2" style="grid-template-columns: 1fr 1fr 1fr auto;">
+                        <?= csrf_field() ?>
+                        <input type="text" name="prenom" class="input-field" placeholder="Prénom" required>
+                        <input type="text" name="nom" class="input-field" placeholder="Nom" required>
+                        <input type="email" name="email" class="input-field" placeholder="Email" required>
+                        <button type="submit" class="btn btn-primary">Créer</button>
+                    </form>
+                </div>
+            </div>
             <div class="table-container" style="border:none;">
                 <table class="table">
                     <thead><tr><th>Nom</th><th>Email</th><th>Statut</th><th>Date création</th></tr></thead>

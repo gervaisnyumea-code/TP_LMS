@@ -8,6 +8,7 @@ $base_url = base_url();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($page_title) ?> - <?= e(APP_NAME) ?></title>
+    <link rel="icon" type="image/png" href="<?= $base_url ?>/public/img/logo/LMS.png">
     
     <!-- Meta tags for JS -->
     <meta name="base-url" content="<?= $base_url ?>">

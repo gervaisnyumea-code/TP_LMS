@@ -45,19 +45,14 @@ $mesCours = $coursModel->listerParEnseignant($_SESSION['user_id']);
     <div class="d-grid gap-4" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
         <?php foreach($mesCours as $c): ?>
         <div class="card course-card">
-            <div class="card-header d-flex justify-between align-center">
-                <span class="badge badge-<?= $c['visible'] ? 'success' : 'locked' ?>"><?= $c['visible'] ? 'Public' : 'Brouillon' ?></span>
-                <?php if($c['module_titre']): ?>
-                    <span class="badge badge-primary" title="Dans le module: <?= e($c['module_titre']) ?>">Module Lié</span>
-                <?php endif; ?>
+            <div class="course-card-img" style="background: linear-gradient(135deg, var(--color-primary) 0%, #0d2136 100%);">
+                <?= strtoupper(substr($c['titre'], 0, 1)) ?>
             </div>
             <div class="course-card-content">
                 <h3 class="course-card-title"><?= e($c['titre']) ?></h3>
                 <div class="course-card-meta mb-3">
-                    <svg viewBox="0 0 24 24"><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
                     <?= $c['nb_lecons'] ?> leçon(s)
                     <span style="margin:0 5px">•</span>
-                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                     <?= $c['nb_inscrits'] ?> inscrit(s)
                 </div>
                 <p class="text-sm text-muted mb-4" style="flex:1;"><?= e(mb_strimwidth($c['description'] ?? '', 0, 100, '...')) ?></p>

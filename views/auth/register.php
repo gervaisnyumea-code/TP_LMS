@@ -11,6 +11,7 @@ $base_url = base_url();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - <?= e(APP_NAME) ?></title>
+    <link rel="icon" type="image/png" href="<?= $base_url ?>/public/img/logo/LMS.png">
     <link rel="stylesheet" href="<?= $base_url ?>/public/css/reset.css">
     <link rel="stylesheet" href="<?= $base_url ?>/public/css/variables.css">
     <link rel="stylesheet" href="<?= $base_url ?>/public/css/base.css">
@@ -27,7 +28,7 @@ $base_url = base_url();
     <div class="auth-card" style="max-width: 500px;">
         <div class="auth-header mb-4">
             <div class="auth-logo" style="width: 48px; height: 48px; margin-bottom: var(--spacing-2);">
-                <svg viewBox="0 0 24 24" style="width: 24px; height: 24px;"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <img src="<?= $base_url ?>/public/img/logo/LMS.png" alt="LMS Logo" style="height: 48px; width: auto;">
             </div>
             <h2>Inscription Étudiant</h2>
         </div>

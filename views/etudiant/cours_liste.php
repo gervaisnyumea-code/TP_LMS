@@ -24,7 +24,7 @@ $coursVisibles = $coursModel->listerVisibles();
             $estInscrit = $coursModel->estInscrit($_SESSION['user_id'], $c['id']);
         ?>
         <div class="card course-card">
-            <div class="course-card-img">
+            <div class="course-card-img" style="background: linear-gradient(135deg, var(--color-primary) 0%, #0d2136 100%);">
                 <?= strtoupper(substr($c['titre'], 0, 1)) ?>
             </div>
             <div class="course-card-content">
@@ -40,10 +40,8 @@ $coursVisibles = $coursModel->listerVisibles();
                 <?php endif; ?>
 
                 <div class="course-card-meta mb-3 mt-2">
-                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                     <?= e($c['enseignant_prenom'].' '.$c['enseignant_nom']) ?>
                     <span style="margin:0 5px">•</span>
-                    <svg viewBox="0 0 24 24"><path d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
                     <?= $c['nb_lecons'] ?> leçon(s)
                 </div>
                 
