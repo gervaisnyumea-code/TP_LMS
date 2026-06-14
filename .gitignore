@@ -4,9 +4,6 @@
 vendor/
 node_modules/
 
-# ═══ DONNEES SENSIBLES ═══
-config/database.php
-
 # ═══ FICHIERS UPLOADES ═══
 public/uploads/pdf/*
 !public/uploads/pdf/.gitkeep
