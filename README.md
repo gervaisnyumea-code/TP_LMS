@@ -15,6 +15,8 @@ Plateforme d'apprentissage en ligne (LMS) pour l'ecosysteme universitaire camero
 ```bash
 cp .env.example .env
 docker compose --profile dev up -d --build
+# Installation des dépendances PHP
+docker exec lms_cameroun_app php composer.phar install
 docker compose exec app php sql/seed.php
 ```
 

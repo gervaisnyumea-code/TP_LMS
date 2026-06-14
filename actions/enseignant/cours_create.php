@@ -9,6 +9,7 @@ verifier_csrf();
 
 $titre = trim($_POST['titre'] ?? '');
 $description = trim($_POST['description'] ?? '');
+$module_id = !empty($_POST['module_id']) ? (int)$_POST['module_id'] : null;
 
 if (empty($titre)) {
     set_flash('error', 'Le titre est obligatoire.');
@@ -16,7 +17,7 @@ if (empty($titre)) {
 }
 
 $coursModel = new Cours($pdo);
-$id = $coursModel->creer($titre, $description, $_SESSION['user_id']);
+$id = $coursModel->creer($titre, $description, $_SESSION['user_id'], $module_id);
 
 set_flash('success', 'Cours créé. Vous pouvez maintenant ajouter des leçons.');
 rediriger('enseignant/cours/edit', ['id' => $id]);

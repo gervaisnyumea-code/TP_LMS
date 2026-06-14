@@ -47,6 +47,15 @@ if ($utilisateurModel->emailExiste($email)) {
 $userId = $utilisateurModel->inscrire($nom, $prenom, $email, $password, ROLE_ETUDIANT);
 
 if ($userId) {
+    // Notification
+    require_once __DIR__ . '/../../services/EmailService.php';
+    EmailService::send(
+        $email,
+        $prenom . ' ' . $nom,
+        'Bienvenue sur ' . APP_NAME,
+        '<h1>Bienvenue !</h1><p>Votre compte a été créé avec succès. Vous pouvez maintenant vous connecter.</p>'
+    );
+
     set_flash('success', 'Votre compte a été créé avec succès. Vous pouvez maintenant vous connecter.');
     rediriger('login');
 } else {

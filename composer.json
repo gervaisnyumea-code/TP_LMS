@@ -1,0 +1,7 @@
+{
+    "name": "lms-cameroun/tp-lms",
+    "description": "LMS Cameroun Platform",
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
+}

@@ -1,0 +1,26 @@
+# render.yaml pour LMS Cameroun
+services:
+  - type: web
+    name: lms-cameroun
+    runtime: php
+    # Configuration pour le serveur PHP sur Render
+    buildCommand: "composer install --no-dev || echo 'No composer dependencies'"
+    # Render utilise un serveur web intégré pour le PHP
+    # Assurez-vous que index.php est à la racine
+    envVars:
+      - key: DATABASE_URL
+        fromSecret: DATABASE_URL
+      - key: CLOUDINARY_CLOUD_NAME
+        value: "dfymenyrx"
+      - key: CLOUDINARY_API_KEY
+        fromSecret: CLOUDINARY_API_KEY
+      - key: CLOUDINARY_API_SECRET
+        fromSecret: CLOUDINARY_API_SECRET
+      - key: APP_NAME
+        value: "LMS Cameroun"
+      - key: APP_ENV
+        value: "production"
+      - key: APP_BASE_URL
+        value: "https://lms-cameroun.onrender.com"
+      - key: SESSION_TIMEOUT
+        value: "3600"

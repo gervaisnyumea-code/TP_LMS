@@ -1,5 +1,8 @@
 FROM php:8.2-apache
 
+# Installation de Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 RUN apt-get update && apt-get install -y \
     libzip-dev \
     libpng-dev \
@@ -30,7 +33,15 @@ COPY docker/apache.conf /etc/apache2/sites-available/000-default.conf
 
 WORKDIR /var/www/html
 
+# Copier uniquement composer.json pour la mise en cache des couches
+COPY composer.json ./
+RUN composer install --no-dev --no-scripts --no-autoloader
+
+# Copier le reste du code
 COPY . /var/www/html/
+
+# Générer l'autoloader après avoir copié tout le code
+RUN composer dump-autoload --optimize
 
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html \

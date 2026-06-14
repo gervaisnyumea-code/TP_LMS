@@ -11,7 +11,8 @@ $base_url = base_url();
     
     <div class="sidebar-user">
         <span class="sidebar-user-name"><?= e($_SESSION['prenom'] ?? '') ?> <?= e($_SESSION['nom'] ?? '') ?></span>
-        <span class="sidebar-user-role"><?= e($role) ?></span>
+        <span class="sidebar-user-role"><?= e($_SESSION['role'] ?? '') ?></span>
+        <a href="<?= $base_url ?>/index.php?page=auth/profile" class="text-sm text-primary mt-1">Éditer mon profil</a>
     </div>
 
     <nav class="sidebar-nav">

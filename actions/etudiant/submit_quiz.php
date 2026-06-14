@@ -77,6 +77,16 @@ if ($cours && $cours['module_id'] && $nouveauPourcentage >= 100) {
     }
 }
 
+// Notification
+require_once __DIR__ . '/../../services/EmailService.php';
+$message = $valide ? "Félicitations, vous avez validé le quiz avec un score de $score%." : "Dommage, vous avez obtenu $score%. Veuillez retenter.";
+EmailService::send(
+    $_SESSION['email'],
+    $_SESSION['prenom'] . ' ' . $_SESSION['nom'],
+    'Résultat du quiz : ' . $evalInfo['titre'],
+    '<h1>Résultat</h1><p>' . $message . '</p>'
+);
+
 echo json_encode([
     'success' => true,
     'score' => $score,

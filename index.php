@@ -179,6 +179,18 @@ switch ($page) {
     case 'promoteur/enseignant_create':
         require __DIR__ . '/actions/promoteur/enseignant_create.php';
         break;
+    case 'promoteur/enseignant_update':
+        require __DIR__ . '/actions/promoteur/enseignant_update.php';
+        break;
+    case 'promoteur/enseignant_delete':
+        require __DIR__ . '/actions/promoteur/enseignant_delete.php';
+        break;
+    case 'promoteur/cours_assign':
+        require __DIR__ . '/actions/promoteur/cours_assign.php';
+        break;
+    case 'promoteur/module_assign_cours':
+        require __DIR__ . '/actions/promoteur/module_assign_cours.php';
+        break;
     case 'promoteur/module_create':
         require __DIR__ . '/actions/promoteur/module_create.php';
         break;
@@ -200,6 +212,13 @@ switch ($page) {
         break;
     case 'auth/register':
         require __DIR__ . '/actions/auth/register.php';
+        break;
+    case 'auth/profile':
+        exiger_connexion();
+        require __DIR__ . '/views/auth/profile.php';
+        break;
+    case 'auth/profile_update':
+        require __DIR__ . '/actions/auth/profile_update.php';
         break;
 
     // ---- VERIFICATION CERTIFICAT (publique) ----

@@ -27,6 +27,15 @@ $mesCours = $coursModel->listerParEnseignant($_SESSION['user_id']);
                 <label class="form-label">Description courte</label>
                 <textarea name="description" class="textarea-field" rows="3"></textarea>
             </div>
+            <div class="form-group">
+                <label class="form-label">Module (optionnel)</label>
+                <select name="module_id" class="select-field">
+                    <option value="">-- Aucun --</option>
+                    <?php foreach($moduleModel->listerTous() as $m): ?>
+                        <option value="<?= $m['id'] ?>"><?= e($m['titre']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
             <div class="d-flex justify-end gap-2">
                 <button type="button" class="btn btn-secondary" onclick="document.getElementById('form-create-cours').classList.add('d-none')">Annuler</button>
                 <button type="submit" class="btn btn-primary">Créer et continuer</button>

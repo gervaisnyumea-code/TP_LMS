@@ -12,10 +12,10 @@ class Cours
         $this->pdo = $pdo;
     }
 
-    public function creer(string $titre, string $description, int $enseignant_id): int
+    public function creer(string $titre, string $description, int $enseignant_id, ?int $module_id = null): int
     {
-        $stmt = $this->pdo->prepare("INSERT INTO cours (titre, description, enseignant_id) VALUES (?, ?, ?)");
-        $stmt->execute([$titre, $description, $enseignant_id]);
+        $stmt = $this->pdo->prepare("INSERT INTO cours (titre, description, enseignant_id, module_id) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$titre, $description, $enseignant_id, $module_id]);
         return (int) $this->pdo->lastInsertId('cours_id_seq');
     }
 
@@ -98,6 +98,12 @@ class Cours
             ORDER BY c.date_creation DESC
         ");
         return $stmt->fetchAll();
+    }
+
+    public function assignerEnseignant(int $cours_id, int $enseignant_id): bool
+    {
+        $stmt = $this->pdo->prepare("UPDATE cours SET enseignant_id = ? WHERE id = ?");
+        return $stmt->execute([$enseignant_id, $cours_id]);
     }
 
     public function appartientA(int $cours_id, int $enseignant_id): bool

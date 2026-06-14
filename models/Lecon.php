@@ -3,6 +3,8 @@
 // MODEL : LECON
 // ============================================================
 
+require_once __DIR__ . '/CloudinaryHelper.php';
+
 class Lecon
 {
     private PDO $pdo;
