@@ -88,7 +88,7 @@
     border-radius: var(--radius-full);
     background-color: rgba(37, 99, 235, 0.1);
     color: var(--color-primary);
-    margin-bottom: var(--spacing-4); }
+    margin-bottom: var(--spacing-4); 
 }
 .auth-logo svg { width: 32px; height: 32px; }
 
@@ -132,7 +132,7 @@
 .course-card-meta {
     font-size: var(--font-size-sm);
     color: var(--color-text-muted);
-    margin-bottom: var(--spacing-4); }
+    margin-bottom: var(--spacing-4); 
     display: flex;
     align-items: center;
     gap: var(--spacing-2);
@@ -145,7 +145,7 @@
 
 .course-card-progress {
     margin-top: auto;
-    margin-bottom: var(--spacing-4); }
+    margin-bottom: var(--spacing-4); 
 }
 
 .course-card-progress-text {

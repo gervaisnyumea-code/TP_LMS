@@ -12,7 +12,7 @@
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
 
- */
+
 
 require_once __DIR__ . '/config/constants.php';
 echo "BREVO_API_KEY: " . (getenv('BREVO_API_KEY') ? "DEFINIE" : "NON DEFINIE") . "\n";
