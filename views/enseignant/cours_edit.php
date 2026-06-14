@@ -36,12 +36,12 @@ require __DIR__ . '/../layouts/header.php';
                 <form action="<?= $base_url ?>/index.php?page=enseignant/cours_update" method="POST">
                     <?= csrf_field() ?>
                     <input type="hidden" name="id" value="<?= $cours_id ?>">
-                    
+
                     <div class="form-group">
                         <label class="form-label">Titre</label>
                         <input type="text" name="titre" class="input-field" value="<?= e($cours['titre']) ?>" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="form-label">Description</label>
                         <textarea name="description" class="textarea-field" rows="4"><?= e($cours['description'] ?? '') ?></textarea>
@@ -53,7 +53,7 @@ require __DIR__ . '/../layouts/header.php';
                             <span>Publier (visible aux étudiants)</span>
                         </label>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary w-100" style="width: 100%;">Enregistrer les infos</button>
                 </form>
             </div>
@@ -66,12 +66,12 @@ require __DIR__ . '/../layouts/header.php';
                 <form action="<?= $base_url ?>/index.php?page=enseignant/lecon_create" method="POST" enctype="multipart/form-data">
                     <?= csrf_field() ?>
                     <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
-                    
+
                     <div class="form-group">
                         <label class="form-label">Titre de la leçon</label>
                         <input type="text" name="titre" class="input-field" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="form-label">Type de contenu</label>
                         <select name="type_contenu" class="select-field" required>
@@ -84,7 +84,7 @@ require __DIR__ . '/../layouts/header.php';
                         <label class="form-label">Fichier</label>
                         <input type="file" name="fichier" class="input-field" required accept=".pdf,.mp4,.webm">
                     </div>
-                    
+
                     <div class="d-grid gap-2" style="grid-template-columns: 1fr 1fr;">
                         <div class="form-group mb-0">
                             <label class="form-label">Durée (min)</label>
@@ -93,16 +93,6 @@ require __DIR__ . '/../layouts/header.php';
                         <div class="form-group mb-0">
                             <label class="form-label">Ordre</label>
                             <input type="number" name="ordre" class="input-field" value="<?= $leconModel->prochainOrdre($cours_id) ?>" required>
-
-<?php
-/*
- * NOM: NYUMEA PEHA DARYL GERVAIS
- * MATRICULE: 24H2571
- * NIVEAU : LICENCE 2
- * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
- */
-?>
-
                         </div>
                     </div>
 
@@ -118,11 +108,11 @@ require __DIR__ . '/../layouts/header.php';
             <div class="card-header d-flex justify-between align-center">
                 <h3 class="font-semibold">Plan du cours (<?= count($lecons) ?> leçons)</h3>
             </div>
-            
+
             <form action="<?= $base_url ?>/index.php?page=enseignant/lecon_reorder" method="POST" class="card-body p-0">
                 <?= csrf_field() ?>
                 <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
-                
+
                 <?php if(empty($lecons)): ?>
                     <div class="p-4 text-center text-muted">Aucune leçon pour le moment.</div>
                 <?php else: ?>
@@ -144,10 +134,10 @@ require __DIR__ . '/../layouts/header.php';
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('Supprimer cette leçon et son évaluation ?')) document.getElementById('delete-form-<?= $l['id'] ?>').submit();">Supprimer</button>
                         </div>
-                        
+
                         <!-- Evaluation Info -->
                         <div class="mt-3 p-3 bg-bg rounded">
                             <?php if($l['evaluation_id']): ?>
@@ -171,26 +161,30 @@ require __DIR__ . '/../layouts/header.php';
             </form>
         </div>
     </div>
-</form>
+</div>
 
+<!-- Formulaires de création d'évaluation (hors de tout form parent pour éviter l'imbrication invalide) -->
 <?php foreach($lecons as $l): ?>
     <?php if(!$l['evaluation_id']): ?>
-        <form id="eval-form-<?= $l['id'] ?>" action="<?= $base_url ?>/index.php?page=enseignant/evaluation_create" method="POST" class="d-none mt-3">
-            <?= csrf_field() ?>
-            <input type="hidden" name="lecon_id" value="<?= $l['id'] ?>">
-            <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
-            <div class="d-grid gap-2" style="grid-template-columns: 2fr 1fr 1fr;">
-                <input type="text" name="titre" class="input-field input-sm" placeholder="Titre du Quiz" value="Quiz : <?= e($l['titre']) ?>" required>
-                <input type="number" name="note_de_passage" class="input-field input-sm" placeholder="Seuil %" value="70" required>
-                <input type="number" name="tentatives_max" class="input-field input-sm" placeholder="Essais" value="3" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-sm mt-2">Sauvegarder l'évaluation</button>
-        </form>
+    <form id="eval-form-<?= $l['id'] ?>" action="<?= $base_url ?>/index.php?page=enseignant/evaluation_create" method="POST" class="d-none mt-3">
+        <?= csrf_field() ?>
+        <input type="hidden" name="lecon_id" value="<?= $l['id'] ?>">
+        <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
+        <div class="d-grid gap-2" style="grid-template-columns: 2fr 1fr 1fr;">
+            <input type="text" name="titre" class="input-field input-sm" placeholder="Titre du Quiz" value="Quiz : <?= e($l['titre']) ?>" required>
+            <input type="number" name="note_de_passage" class="input-field input-sm" placeholder="Seuil %" value="70" required>
+            <input type="number" name="tentatives_max" class="input-field input-sm" placeholder="Essais" value="3" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm mt-2">Sauvegarder l'évaluation</button>
+    </form>
     <?php endif; ?>
+<?php endforeach; ?>
+
+<!-- Formulaire de suppression (hors de tout form parent pour éviter l'imbrication invalide) -->
+<?php foreach($lecons as $l): ?>
     <form id="delete-form-<?= $l['id'] ?>" action="<?= $base_url ?>/index.php?page=enseignant/lecon_delete" method="POST" class="d-none">
         <?= csrf_field() ?>
         <input type="hidden" name="id" value="<?= $l['id'] ?>">
         <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
     </form>
 <?php endforeach; ?>
-

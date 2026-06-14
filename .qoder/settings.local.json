@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /home/gerva/projets/TP/Dr.MESSI/PROJETS_PRATIQUE/LMS/PROJET/LMS_CAMEROUN/TP_LMS/controllers/ 2>/dev/null && echo \"---\" && ls /home/gerva/projets/TP/Dr.MESSI/PROJETS_PRATIQUE/LMS/PROJET/LMS_CAMEROUN/TP_LMS/)"
+    ]
+  }
+}
