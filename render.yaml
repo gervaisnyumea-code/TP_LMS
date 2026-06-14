@@ -3,10 +3,11 @@ services:
   - type: web
     name: lms-cameroun
     runtime: php
+    
     # Configuration pour le serveur PHP sur Render
-    buildCommand: "composer install --no-dev || echo 'No composer dependencies'"
-    # Render utilise un serveur web intégré pour le PHP
-    # Assurez-vous que index.php est à la racine
+    # Si index.php est à la racine du dépôt Git, on n'utilise pas rootDir.
+    buildCommand: "composer install --no-dev --no-scripts --no-autoloader"
+    
     envVars:
       - key: DATABASE_URL
         fromSecret: DATABASE_URL
@@ -21,6 +22,18 @@ services:
       - key: APP_ENV
         value: "production"
       - key: APP_BASE_URL
-        value: "https://lms-cameroun.onrender.com"
+        value: "https://lms-version-1.onrender.com"
       - key: SESSION_TIMEOUT
         value: "3600"
+      - key: BREVO_SMTP_HOST
+        value: "smtp-relay.brevo.com"
+      - key: BREVO_SMTP_PORT
+        value: "587"
+      - key: BREVO_SMTP_USER
+        fromSecret: BREVO_SMTP_USER
+      - key: BREVO_SMTP_PASS
+        fromSecret: BREVO_SMTP_PASS
+      - key: BREVO_API_KEY
+        fromSecret: BREVO_API_KEY
+      - key: EMAIL_FROM
+        value: "gervais.nyumea@facsciences-uy1.cm"
