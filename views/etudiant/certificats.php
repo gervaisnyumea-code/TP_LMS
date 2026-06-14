@@ -25,12 +25,14 @@ $certificats = $certificatModel->listerParEtudiant($_SESSION['user_id']);
         <h3 class="empty-state-title">Aucun certificat</h3>
         <p class="empty-state-desc">Vous n'avez pas encore terminé de module certifiant. Continuez votre apprentissage !</p>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
         <a href="<?= $base_url ?>/index.php?page=etudiant/dashboard" class="btn btn-primary mt-3">Aller à mes cours</a>
     </div>

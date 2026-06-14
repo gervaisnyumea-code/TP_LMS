@@ -43,12 +43,14 @@ $mesCours = $coursModel->listerParEnseignant($_SESSION['user_id']);
                     <?php endforeach; ?>
                 </select>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
             </div>
             <div class="d-flex justify-end gap-2">

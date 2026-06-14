@@ -41,12 +41,14 @@ $mesCours = $coursModel->listerParEnseignant($_SESSION['user_id']);
                     <?php if(empty($stats)): ?>
                         <div class="p-4 text-center text-muted">Aucune leçon dans ce cours.</div>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
                     <?php else: ?>
                     <table class="table">

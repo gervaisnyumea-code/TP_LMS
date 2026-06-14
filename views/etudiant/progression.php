@@ -57,12 +57,14 @@ $progression_globale = ($total_lecons > 0)
             <span class="stat-label">Progression globale</span>
         </div>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
         <div class="dashboard-stat">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>

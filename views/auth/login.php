@@ -38,12 +38,14 @@ $base_url = base_url();
             <div class="auth-logo">
                 <img src="<?= $base_url ?>/public/img/logo/LMS.png" alt="LMS Logo" style="height: 48px; width: auto;">
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
             </div>
             <h2>Connexion</h2>

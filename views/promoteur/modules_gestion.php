@@ -40,12 +40,14 @@ $modules = $moduleModel->listerTous();
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Créer le module</button>
                 </form>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
             </div>
         </div>

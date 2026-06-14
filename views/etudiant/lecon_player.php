@@ -78,12 +78,14 @@ require __DIR__ . '/../layouts/header.php';
                         <p class="text-sm text-muted">Note requise : <?= $evaluation['note_de_passage'] ?>% | Tentatives restantes : <?= $tentatives_restantes ?></p>
                     </div>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
                 </div>
 

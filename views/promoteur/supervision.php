@@ -109,12 +109,14 @@ $coursTous = $coursModel->listerTous();
         <div id="tab-modules" class="tab-content">
             <div class="table-container" style="border:none;">
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
                 <table class="table">
                     <thead><tr><th>Module</th><th>Cours</th><th>Assigner Cours</th></tr></thead>

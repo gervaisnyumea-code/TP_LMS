@@ -23,12 +23,14 @@ $user = $utilisateurModel->trouverParId($_SESSION['user_id']);
             <div class="form-group">
                 <label class="form-label">Email</label>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
                 <input type="email" name="email" class="input-field" value="<?= e($user['email']) ?>" required>
             </div>

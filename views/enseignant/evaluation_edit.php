@@ -45,12 +45,14 @@ require __DIR__ . '/../layouts/header.php';
                 <div class="form-group"><label class="form-label">Option D</label><input type="text" name="option_D" class="input-field" required></div>
             </div>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
             
             <div class="d-grid gap-2" style="grid-template-columns: 2fr 1fr;">

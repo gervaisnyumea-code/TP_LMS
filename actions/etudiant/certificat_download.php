@@ -38,12 +38,14 @@ $base_url = base_url();
     <style>
         body { background-color: #f0f2f5; margin: 0; padding: 0; display: flex; justify-content: center; min-height: 100vh; }
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
     </style>
 </head>

@@ -35,12 +35,14 @@ $coursVisibles = $coursModel->listerVisibles();
                 <?= strtoupper(substr($c['titre'], 0, 1)) ?>
             </div>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
             <div class="course-card-content">
                 <div class="d-flex justify-between align-start mb-2">

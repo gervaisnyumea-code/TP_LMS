@@ -43,12 +43,14 @@ $base_url = base_url();
                 </a>
             </div>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
 
         <?php elseif ($role === ROLE_ENSEIGNANT): ?>

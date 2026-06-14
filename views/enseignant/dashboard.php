@@ -44,12 +44,14 @@ $coursRecents = array_slice($mesCours, 0, 5);
             <span class="stat-value"><?= $nbEtudiantsTotal ?></span>
             <span class="stat-label">Inscriptions totales</span>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
         </div>
     </div>

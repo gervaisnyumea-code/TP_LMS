@@ -57,12 +57,14 @@ require __DIR__ . '/../layouts/header.php';
                     </div>
                 <?php endif; ?>
 
+<?php
 /*
  * NOM: NYUMEA PEHA DARYL GERVAIS
  * MATRICULE: 24H2571
  * NIVEAU : LICENCE 2
  * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
  */
+?>
 
 
                 <h3 class="font-semibold mb-2 mt-4">Description</h3>
