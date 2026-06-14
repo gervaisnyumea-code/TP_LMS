@@ -5,9 +5,20 @@
 $dbUrl = getenv('DATABASE_URL');
 
 if ($dbUrl) {
-    $dsn = $dbUrl;
-    $user = null;
-    $pass = null;
+    $parts = parse_url($dbUrl);
+    
+    // Construction du DSN pour PDO pgsql à partir de l'URL
+    $host = $parts['host'] ?? 'localhost';
+    $port = $parts['port'] ?? '5432';
+    $db   = ltrim($parts['path'] ?? '', '/');
+    
+    $dsn = "pgsql:host=$host;port=$port;dbname=$db";
+    if (isset($parts['query'])) {
+        $dsn .= ";" . str_replace('&', ';', $parts['query']);
+    }
+    
+    $user = $parts['user'] ?? null;
+    $pass = $parts['pass'] ?? null;
 } else {
     // 2. Fallback pour le développement local
     $host = getenv('DB_HOST') ?: 'db';
