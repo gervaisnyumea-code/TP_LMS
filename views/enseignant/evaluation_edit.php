@@ -27,6 +27,29 @@ require __DIR__ . '/../layouts/header.php';
 </div>
 
 <div class="card mb-4">
+    <div class="card-header"><h3 class="font-semibold">Paramètres de l'évaluation</h3></div>
+    <div class="card-body">
+        <form action="<?= base_url('index.php?page=enseignant/evaluation_update') ?>" method="POST">
+            <?= csrf_field() ?>
+            <input type="hidden" name="evaluation_id" value="<?= $evaluation_id ?>">
+            <input type="hidden" name="cours_id" value="<?= $evaluation['cours_id'] ?>">
+            
+            <div class="form-group">
+                <label class="form-label">Titre</label>
+                <input type="text" name="titre" class="input-field" value="<?= e($evaluation['titre']) ?>" required>
+            </div>
+            
+            <div class="d-grid gap-2" style="grid-template-columns: 1fr 1fr;">
+                <div class="form-group"><label class="form-label">Seuil de réussite (%)</label><input type="number" name="note_de_passage" class="input-field" value="<?= e($evaluation['note_de_passage']) ?>" required></div>
+                <div class="form-group"><label class="form-label">Tentatives max</label><input type="number" name="tentatives_max" class="input-field" value="<?= e($evaluation['tentatives_max']) ?>" required></div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enregistrer les paramètres</button>
+        </form>
+    </div>
+</div>
+
+<div class="card mb-4">
     <div class="card-header"><h3 class="font-semibold">Ajouter une question</h3></div>
     <div class="card-body">
         <form action="<?= base_url('index.php?page=enseignant/question_save') ?>" method="POST">

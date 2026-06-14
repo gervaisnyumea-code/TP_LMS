@@ -148,9 +148,6 @@ require __DIR__ . '/../layouts/header.php';
                             <button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('Supprimer cette leçon et son évaluation ?')) document.getElementById('delete-form-<?= $l['id'] ?>').submit();">Supprimer</button>
                         </div>
                         
-                        <!-- Formulaire de suppression caché -->
-
-
                         <!-- Evaluation Info -->
                         <div class="mt-3 p-3 bg-bg rounded">
                             <?php if($l['evaluation_id']): ?>
@@ -159,38 +156,37 @@ require __DIR__ . '/../layouts/header.php';
                                         <span class="font-medium text-sm">Évaluation : <?= e($l['evaluation_titre']) ?></span>
                                         <span class="text-xs text-muted ml-2">(<?= $l['nb_questions'] ?> questions)</span>
                                     </div>
-                                    <!-- Here we would link to a dedicated evaluation edit page or open a modal -->
                                     <a href="<?= base_url('index.php?page=enseignant/evaluation_edit&id=' . $l['evaluation_id']) ?>" class="btn btn-secondary btn-sm">Gérer QCM</a>
                                 </div>
                             <?php else: ?>
                                 <div class="d-flex justify-between align-center">
                                     <span class="text-sm text-warning font-medium d-flex align-center gap-1"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Aucune évaluation définie</span>
-                                    <button class="btn btn-primary btn-sm" onclick="document.getElementById('eval-form-<?= $l['id'] ?>').classList.toggle('d-none')">Créer Évaluation</button>
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('eval-form-<?= $l['id'] ?>').classList.toggle('d-none')">Créer Évaluation</button>
                                 </div>
-                                
-                                <!-- Inline Eval Create Form -->
-                                <form id="eval-form-<?= $l['id'] ?>" action="<?= $base_url ?>/index.php?page=enseignant/evaluation_create" method="POST" class="d-none mt-3">
-                                    <?= csrf_field() ?>
-                                    <input type="hidden" name="lecon_id" value="<?= $l['id'] ?>">
-                                    <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
-                                    <div class="d-grid gap-2" style="grid-template-columns: 2fr 1fr 1fr;">
-                                        <input type="text" name="titre" class="input-field input-sm" placeholder="Titre du Quiz" value="Quiz : <?= e($l['titre']) ?>" required>
-                                        <input type="number" name="note_de_passage" class="input-field input-sm" placeholder="Seuil %" value="70" required>
-                                        <input type="number" name="tentatives_max" class="input-field input-sm" placeholder="Essais" value="3" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-sm mt-2">Sauvegarder l'évaluation</button>
-                                </form>
                             <?php endif; ?>
                         </div>
                     </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
-            </div>
+            </form>
         </div>
     </div>
 </form>
 
 <?php foreach($lecons as $l): ?>
+    <?php if(!$l['evaluation_id']): ?>
+        <form id="eval-form-<?= $l['id'] ?>" action="<?= $base_url ?>/index.php?page=enseignant/evaluation_create" method="POST" class="d-none mt-3">
+            <?= csrf_field() ?>
+            <input type="hidden" name="lecon_id" value="<?= $l['id'] ?>">
+            <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
+            <div class="d-grid gap-2" style="grid-template-columns: 2fr 1fr 1fr;">
+                <input type="text" name="titre" class="input-field input-sm" placeholder="Titre du Quiz" value="Quiz : <?= e($l['titre']) ?>" required>
+                <input type="number" name="note_de_passage" class="input-field input-sm" placeholder="Seuil %" value="70" required>
+                <input type="number" name="tentatives_max" class="input-field input-sm" placeholder="Essais" value="3" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm mt-2">Sauvegarder l'évaluation</button>
+        </form>
+    <?php endif; ?>
     <form id="delete-form-<?= $l['id'] ?>" action="<?= $base_url ?>/index.php?page=enseignant/lecon_delete" method="POST" class="d-none">
         <?= csrf_field() ?>
         <input type="hidden" name="id" value="<?= $l['id'] ?>">

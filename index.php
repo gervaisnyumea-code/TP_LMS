@@ -34,6 +34,15 @@ $certificatModel   = new Certificat($pdo);
 // -- Determiner la page demandee
 $page = $_GET['page'] ?? '';
 
+// Correction temporaire : si la page contient un autre '?' (provenant d'une mauvaise URL)
+if (strpos($page, '?') !== false) {
+    $parts = explode('?', $page, 2);
+    $realPage = $parts[0];
+    $extraParams = $parts[1];
+    header('Location: ' . base_url('index.php?page=' . $realPage . '&' . $extraParams));
+    exit;
+}
+
 // -- Routes publiques (sans authentification)
 $routes_publiques = ['login', 'register', 'auth/login', 'auth/register', 'certificat/verifier'];
 
@@ -189,6 +198,9 @@ switch ($page) {
         break;
     case 'enseignant/evaluation_update':
         require __DIR__ . '/actions/enseignant/evaluation_update.php';
+        break;
+    case 'enseignant/evaluation_create':
+        require __DIR__ . '/actions/enseignant/evaluation_create.php';
         break;
 
     case 'promoteur/enseignant_create':

@@ -51,6 +51,7 @@ $mesCours = $coursModel->listerParEnseignant($_SESSION['user_id']);
 ?>
 
                     <?php else: ?>
+                        
                     <table class="table">
                         <thead>
                             <tr>
@@ -84,11 +85,15 @@ $mesCours = $coursModel->listerParEnseignant($_SESSION['user_id']);
                             <?php endforeach; ?>
                         </tbody>
                     </table>
+                    
                     <?php endif; ?>
+                    
                 </div>
+                
             </div>
         <?php endforeach; ?>
     </div>
+    
 <?php endif; ?>
-
+ 
 <?php require __DIR__ . '/../layouts/footer.php'; ?>
