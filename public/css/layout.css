@@ -24,10 +24,6 @@
     flex-shrink: 0;
     transition: transform var(--transition-normal);
     z-index: var(--z-sidebar);
-    /* Improve mobile performance and reduce blurriness */
-    will-change: transform;
-    backface-visibility: hidden;
-    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .sidebar-header {
@@ -153,8 +149,6 @@
     display: flex;
     flex-direction: column;
     min-width: 0;
-    /* Ensure content remains crisp */
-    transform: translateZ(0);
 }
 
 .header-bar {
@@ -175,6 +169,7 @@
     border: none;
     cursor: pointer;
     padding: var(--spacing-2);
+    z-index: 250; /* Ensure toggle is always clickable */
 }
 
 /* Theme Toggle Button */
@@ -236,7 +231,7 @@
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
-    z-index: var(--z-overlay);
+    z-index: var(--z-sidebar); /* Adjusted to sit under sidebar but above content */
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-normal);
@@ -250,9 +245,7 @@
         width: 80%;
         max-width: 300px;
         transform: translateX(-100%);
-        /* Forces smooth GPU rendering on mobile */
-        backface-visibility: hidden;
-        perspective: 1000px;
+        z-index: 210; /* Ensure sidebar is above overlay */
     }
     
     .sidebar.open {
