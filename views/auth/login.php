@@ -33,6 +33,14 @@ $base_url = base_url();
     </script>
 </head>
 <body class="auth-layout">
+    <div class="auth-info-badge">
+        AUTEUR : 
+        <br>
+        <ul>
+            <li><span class="auth-info-name">NYUMEA PEHA DARYL GERVAIS</span></li>
+            <li><span class="auth-info-detail">LICENCE 2 &middot; UNIVERSITE DE YAOUNDE 1</span></li>
+        </ul>
+        </div>
     <div class="auth-card">
         <div class="auth-header">
             <div class="auth-logo">
