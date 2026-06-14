@@ -1,3 +1,10 @@
+<!-- 
+NOM: NYUMEA PEHA DARYL GERVAIS
+MATRICULE: 24H2571
+NIVEAU : LICENCE 2
+UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+-->
+
 # DOCUMENT DE CONSTRUCTION -- PLATEFORME LMS CAMEROUN
 
 > Reference technique unique pour le developpement. Ce document fait autorite sur toutes les decisions d'architecture, de design, de deploiement et d'implementation.

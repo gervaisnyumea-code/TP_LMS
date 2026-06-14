@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../models/Certificat.php';
@@ -37,6 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="text-center mb-5">
             <div class="auth-logo mb-3">
                 <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
             </div>
             <h2>Vérification de Certificat</h2>
             <p class="text-muted mt-2">Saisissez le code unique pour vérifier l'authenticité d'un diplôme délivré par LMS Cameroun.</p>

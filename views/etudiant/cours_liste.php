@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $page_title = 'Catalogue des Cours';
 require __DIR__ . '/../layouts/header.php';
 
@@ -27,6 +34,14 @@ $coursVisibles = $coursModel->listerVisibles();
             <div class="course-card-img" style="background: linear-gradient(135deg, var(--color-primary) 0%, #0d2136 100%);">
                 <?= strtoupper(substr($c['titre'], 0, 1)) ?>
             </div>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
             <div class="course-card-content">
                 <div class="d-flex justify-between align-start mb-2">
                     <h3 class="course-card-title m-0"><?= e($c['titre']) ?></h3>

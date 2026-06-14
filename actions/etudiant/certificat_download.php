@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../models/Certificat.php';
@@ -30,6 +37,14 @@ $base_url = base_url();
     <link rel="stylesheet" href="<?= $base_url ?>/public/css/pages.css">
     <style>
         body { background-color: #f0f2f5; margin: 0; padding: 0; display: flex; justify-content: center; min-height: 100vh; }
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
     </style>
 </head>
 <body>

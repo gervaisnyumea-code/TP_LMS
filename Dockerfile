@@ -1,3 +1,8 @@
+# NOM: NYUMEA PEHA DARYL GERVAIS
+# MATRICULE: 24H2571
+# NIVEAU : LICENCE 2
+# UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+
 FROM php:8.2-apache
 
 # Installation de Composer
@@ -21,6 +26,12 @@ RUN apt-get update && apt-get install -y \
         zip \
         gd \
         curl \
+
+# NOM: NYUMEA PEHA DARYL GERVAIS
+# MATRICULE: 24H2571
+# NIVEAU : LICENCE 2
+# UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+
     && a2enmod rewrite headers \
     && rm -rf /var/lib/apt/lists/*
 

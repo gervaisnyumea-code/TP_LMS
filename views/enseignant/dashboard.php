@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $page_title = 'Tableau de bord Enseignant';
 require __DIR__ . '/../layouts/header.php';
 
@@ -36,6 +43,14 @@ $coursRecents = array_slice($mesCours, 0, 5);
         <div class="stat-content">
             <span class="stat-value"><?= $nbEtudiantsTotal ?></span>
             <span class="stat-label">Inscriptions totales</span>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
         </div>
     </div>
     <div class="stat-card">

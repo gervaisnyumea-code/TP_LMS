@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../models/Cours.php';
@@ -6,6 +13,14 @@ require_once __DIR__ . '/../../models/Lecon.php';
 
 exiger_role(ROLE_ENSEIGNANT);
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') rediriger('enseignant/cours');
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 verifier_csrf();
 
 $id = (int)($_POST['id'] ?? 0);

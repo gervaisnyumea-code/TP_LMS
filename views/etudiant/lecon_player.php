@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $lecon_id = (int)($_GET['id'] ?? 0);
 $lecon = $leconModel->trouverParId($lecon_id);
 
@@ -70,6 +77,14 @@ require __DIR__ . '/../layouts/header.php';
                         <h3 class="font-semibold">Evaluation : <?= e($evaluation['titre']) ?></h3>
                         <p class="text-sm text-muted">Note requise : <?= $evaluation['note_de_passage'] ?>% | Tentatives restantes : <?= $tentatives_restantes ?></p>
                     </div>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
                 </div>
 
                 <div id="resultat-quiz"></div>

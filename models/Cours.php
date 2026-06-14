@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // ============================================================
 // MODEL : COURS
 // ============================================================
@@ -71,6 +78,14 @@ class Cours
             SELECT c.*, u.nom as enseignant_nom, u.prenom as enseignant_prenom,
                    COUNT(l.id) as nb_lecons,
                    m.titre as module_titre
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
             FROM cours c
             LEFT JOIN utilisateurs u ON u.id = c.enseignant_id
             LEFT JOIN lecons l ON l.cours_id = c.id

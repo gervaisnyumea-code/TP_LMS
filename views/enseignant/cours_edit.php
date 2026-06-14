@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $cours_id = (int)($_GET['id'] ?? 0);
 $cours = $coursModel->trouverParId($cours_id);
 
@@ -86,6 +93,14 @@ require __DIR__ . '/../layouts/header.php';
                         <div class="form-group mb-0">
                             <label class="form-label">Ordre</label>
                             <input type="number" name="ordre" class="input-field" value="<?= $leconModel->prochainOrdre($cours_id) ?>" required>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
                         </div>
                     </div>
 

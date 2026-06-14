@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../models/Evaluation.php';
@@ -15,6 +22,14 @@ $reponse = trim($_POST['reponse'] ?? '');
 $ordre = (int)($_POST['ordre'] ?? 1);
 
 // Options JSON formatées (A, B, C, D)
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $options = [
     'A' => trim($_POST['option_A'] ?? ''),
     'B' => trim($_POST['option_B'] ?? ''),

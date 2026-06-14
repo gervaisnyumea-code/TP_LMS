@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // ============================================================
 // MODEL : CERTIFICAT
 // ============================================================
@@ -67,6 +74,14 @@ class Certificat
         $stmt = $this->pdo->prepare("
             SELECT cert.*, 
                    u.nom as etudiant_nom, u.prenom as etudiant_prenom,
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
                    m.titre as module_titre
             FROM certificats cert
             JOIN utilisateurs u ON u.id = cert.etudiant_id

@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../config/constants.php';
@@ -9,6 +16,14 @@ require_once __DIR__ . '/../../models/Certificat.php';
 
 header('Content-Type: application/json');
 exiger_role(ROLE_PROMOTEUR);
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 
 $comptes = (new Utilisateur($pdo))->compterParRole();
 $cours = (new Cours($pdo))->listerTous();

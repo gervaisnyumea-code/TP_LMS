@@ -1,3 +1,8 @@
+# NOM: NYUMEA PEHA DARYL GERVAIS
+# MATRICULE: 24H2571
+# NIVEAU : LICENCE 2
+# UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+
 #!/bin/bash
 set -e
 
@@ -37,6 +42,12 @@ if [ ! -f .env ]; then
 else
     echo -e "${GREEN}[OK]${NC} .env existe deja"
 fi
+
+# NOM: NYUMEA PEHA DARYL GERVAIS
+# MATRICULE: 24H2571
+# NIVEAU : LICENCE 2
+# UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+
 
 # 3. Lancer les conteneurs
 echo ""

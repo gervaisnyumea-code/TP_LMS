@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../config/constants.php';
@@ -35,6 +42,14 @@ $isValid = false;
 if ($type_contenu === 'pdf' && in_array($ext, EXT_PDF) && in_array($mime, MIME_PDF) && $file['size'] <= MAX_FILE_SIZE_PDF) {
     $isValid = true;
 } elseif ($type_contenu === 'video' && in_array($ext, EXT_VIDEO) && in_array($mime, MIME_VIDEO) && $file['size'] <= MAX_FILE_SIZE_VIDEO) {
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
     $isValid = true;
 }
 

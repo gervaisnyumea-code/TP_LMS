@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // ============================================================
 // MODEL : LECON
 // ============================================================
@@ -51,6 +58,14 @@ class Lecon
             JOIN cours c ON c.id = l.cours_id
             WHERE l.id = ?
         ");
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
         $stmt->execute([$id]);
         return $stmt->fetch() ?: null;
     }

@@ -1,3 +1,10 @@
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // public/js/app.js
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -58,6 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Dropdowns
     document.addEventListener('click', (e) => {
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
         const isDropdownButton = e.target.closest('.dropdown-toggle');
         if (!isDropdownButton && e.target.closest('.dropdown') != null) return;
 

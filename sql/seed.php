@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // ============================================================
 // SEED -- DONNEES DE DEMONSTRATION (PostgreSQL)
 // ============================================================
@@ -71,6 +78,14 @@ if ($promoteur && $enseignant) {
                     ['Quelle balise contient le contenu visible ?', ['A' => '<head>', 'B' => '<body>', 'C' => '<meta>', 'D' => '<title>'], 'B'],
                     ['Quel attribut rend un champ obligatoire ?', ['A' => 'checked', 'B' => 'disabled', 'C' => 'required', 'D' => 'readonly'], 'C'],
                 ],
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
             ],
             [
                 'titre' => 'Les selecteurs CSS',

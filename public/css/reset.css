@@ -1,3 +1,10 @@
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 /* public/css/reset.css */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -16,6 +23,14 @@ html {
 body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
     line-height: 1.5;
 }
 

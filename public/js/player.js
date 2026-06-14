@@ -1,3 +1,10 @@
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // public/js/player.js
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,6 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const res = await fetchAjax(`${baseUrl}/index.php?page=etudiant/lecon_viewed`, {
             method: 'POST',
             body: formData
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
         });
 
         // Enable quiz button

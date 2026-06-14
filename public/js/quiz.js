@@ -1,3 +1,10 @@
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // public/js/quiz.js
 
 async function soumettreEvaluation(evaluationId) {
@@ -36,6 +43,14 @@ async function soumettreEvaluation(evaluationId) {
         // Disable form inputs
         form.querySelectorAll('input').forEach(input => input.disabled = true);
         if (submitBtn) submitBtn.style.display = 'none';
+
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
 
         if (data.valide) {
             resultContainer.innerHTML = `

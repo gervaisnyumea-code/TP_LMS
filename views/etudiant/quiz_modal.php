@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../config/constants.php';
@@ -33,6 +40,14 @@ $deja_valide = $prog && $prog['valide'];
 
 <div class="quiz-header">
     <h3><?= e($evaluation['titre']) ?></h3>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
     <p class="text-muted">
         <?= count($questions) ?> questions -- Seuil : <?= (int)$evaluation['note_de_passage'] ?>%
         <?php if ($evaluation['tentatives_max'] > 0): ?>

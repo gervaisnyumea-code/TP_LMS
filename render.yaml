@@ -1,3 +1,8 @@
+# NOM: NYUMEA PEHA DARYL GERVAIS
+# MATRICULE: 24H2571
+# NIVEAU : LICENCE 2
+# UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+
 # render.yaml pour LMS Cameroun
 services:
   - type: web
@@ -15,6 +20,12 @@ services:
         value: "dfymenyrx"
       - key: CLOUDINARY_API_KEY
         fromSecret: CLOUDINARY_API_KEY
+
+# NOM: NYUMEA PEHA DARYL GERVAIS
+# MATRICULE: 24H2571
+# NIVEAU : LICENCE 2
+# UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+
       - key: CLOUDINARY_API_SECRET
         fromSecret: CLOUDINARY_API_SECRET
       - key: APP_NAME

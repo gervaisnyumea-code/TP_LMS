@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $page_title = 'Statistiques des Cours';
 require __DIR__ . '/../layouts/header.php';
 
@@ -33,6 +40,14 @@ $mesCours = $coursModel->listerParEnseignant($_SESSION['user_id']);
                 <div class="table-container" style="border:none; border-radius:0;">
                     <?php if(empty($stats)): ?>
                         <div class="p-4 text-center text-muted">Aucune leçon dans ce cours.</div>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
                     <?php else: ?>
                     <table class="table">
                         <thead>

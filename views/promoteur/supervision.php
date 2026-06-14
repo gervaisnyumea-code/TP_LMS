@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $page_title = 'Supervision';
 require __DIR__ . '/../layouts/header.php';
 
@@ -101,6 +108,14 @@ $coursTous = $coursModel->listerTous();
         <!-- Onglet Modules -->
         <div id="tab-modules" class="tab-content">
             <div class="table-container" style="border:none;">
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
                 <table class="table">
                     <thead><tr><th>Module</th><th>Cours</th><th>Assigner Cours</th></tr></thead>
                     <tbody>

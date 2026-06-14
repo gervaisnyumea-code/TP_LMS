@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 // Rediriger si deja connecte
 if (est_connecte()) {
@@ -30,6 +37,14 @@ $base_url = base_url();
         <div class="auth-header">
             <div class="auth-logo">
                 <img src="<?= $base_url ?>/public/img/logo/LMS.png" alt="LMS Logo" style="height: 48px; width: auto;">
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
             </div>
             <h2>Connexion</h2>
             <p class="text-muted text-sm">Bienvenue sur la plateforme <?= e(APP_NAME) ?></p>

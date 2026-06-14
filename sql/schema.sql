@@ -1,3 +1,10 @@
+--
+-- NOM: NYUMEA PEHA DARYL GERVAIS
+-- MATRICULE: 24H2571
+-- NIVEAU : LICENCE 2
+-- UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+--
+
 -- ============================================================
 -- PLATEFORME LMS CAMEROUN -- SCHEMA POSTGRESQL (NEON)
 -- ============================================================
@@ -67,6 +74,14 @@ CREATE TABLE IF NOT EXISTS lecons (
     duree_estimee   INTEGER,
     ordre           INTEGER NOT NULL DEFAULT 0,
     date_creation   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+--
+-- NOM: NYUMEA PEHA DARYL GERVAIS
+-- MATRICULE: 24H2571
+-- NIVEAU : LICENCE 2
+-- UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+--
+
 );
 
 -- ------------------------------------------------------------

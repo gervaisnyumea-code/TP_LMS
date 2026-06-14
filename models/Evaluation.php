@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // ============================================================
 // MODEL : EVALUATION
 // ============================================================
@@ -47,6 +54,14 @@ class Evaluation
     {
         $stmt = $this->pdo->prepare("SELECT * FROM evaluations WHERE lecon_id = ?");
         $stmt->execute([$lecon_id]);
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
         return $stmt->fetch() ?: null;
     }
 

@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // ============================================================
 // ROUTEUR PRINCIPAL -- LMS CAMEROUN
 // ============================================================
@@ -111,6 +118,14 @@ switch ($page) {
 
     // ---- PROMOTEUR ----
     case 'promoteur/dashboard':
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
         exiger_role(ROLE_PROMOTEUR);
         require __DIR__ . '/views/promoteur/dashboard.php';
         break;

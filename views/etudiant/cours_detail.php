@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $cours_id = (int)($_GET['id'] ?? 0);
 
 if (!$coursModel->estInscrit($_SESSION['user_id'], $cours_id)) {
@@ -49,6 +56,14 @@ require __DIR__ . '/../layouts/header.php';
                         </div>
                     </div>
                 <?php endif; ?>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 
                 <h3 class="font-semibold mb-2 mt-4">Description</h3>
                 <p class="text-sm text-muted"><?= e($cours['description'] ?: 'Aucune description fournie.') ?></p>

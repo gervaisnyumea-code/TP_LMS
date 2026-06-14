@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $page_title = $page_title ?? APP_NAME;
 $base_url = base_url();
 ?>
@@ -42,6 +49,14 @@ $base_url = base_url();
 
         <!-- Main Wrapper -->
         <div class="main-wrapper">
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
             <!-- Header Bar -->
             <header class="header-bar">
                 <div class="d-flex align-center gap-3">

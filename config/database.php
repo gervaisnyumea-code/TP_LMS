@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // config/database.php
 
 // 1. Priorité à DATABASE_URL (pour Neon en production)
@@ -19,6 +26,14 @@ if ($dbUrl) {
     
     $user = $parts['user'] ?? null;
     $pass = $parts['pass'] ?? null;
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 } else {
     // 2. Fallback pour le développement local
     $host = getenv('DB_HOST') ?: 'db';

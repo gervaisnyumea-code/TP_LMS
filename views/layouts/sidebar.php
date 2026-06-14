@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $current_page = $_GET['page'] ?? '';
 $role = $_SESSION['role'] ?? '';
 $base_url = base_url();
@@ -35,6 +42,14 @@ $base_url = base_url();
                     Certificats
                 </a>
             </div>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 
         <?php elseif ($role === ROLE_ENSEIGNANT): ?>
             <div class="sidebar-section">

@@ -1,8 +1,15 @@
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 /* public/css/variables.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    /* Light Theme (Default) */
+    /* Light Theme (Default - Clean Base) */
     --color-primary: #2563EB;
     --color-primary-hover: #1D4ED8;
     --color-secondary: #4F46E5;
@@ -68,33 +75,34 @@
     --z-toast: 300;
 }
 
-/* Dark Theme */
+/* Dark/Gray Theme - Refined */
 [data-theme="dark"] {
-    --color-primary: #3B82F6;
-    --color-primary-hover: #60A5FA;
-    --color-secondary: #6366F1;
-    --color-accent: #2563EB;
+    --color-primary: #60A5FA;
+    --color-primary-hover: #93C5FD;
+    --color-secondary: #818CF8;
+    --color-accent: #3B82F6;
     
     --color-success: #34D399;
-    --color-success-bg: rgba(16, 185, 129, 0.2);
+    --color-success-bg: rgba(16, 185, 129, 0.15);
     --color-error: #F87171;
-    --color-error-bg: rgba(239, 68, 68, 0.2);
+    --color-error-bg: rgba(239, 68, 68, 0.15);
     --color-warning: #FBBF24;
-    --color-warning-bg: rgba(245, 158, 11, 0.2);
-    --color-locked: #6B7280;
-    --color-locked-bg: rgba(107, 114, 128, 0.2);
+    --color-warning-bg: rgba(245, 158, 11, 0.15);
+    --color-locked: #4B5563;
+    --color-locked-bg: rgba(75, 85, 99, 0.15);
     
-    --color-bg: #0F172A;
-    --color-surface: #1E293B;
-    --color-surface-hover: #334155;
-    --color-border: #334155;
+    /* Elegant Dark Gray Palette */
+    --color-bg: #111111;        /* Deep Black/Gray */
+    --color-surface: #1C1C1C;   /* Lighter Gray Surface */
+    --color-surface-hover: #262626;
+    --color-border: #333333;
     
-    --color-text: #F9FAFB;
+    --color-text: #E5E7EB;
     --color-text-muted: #9CA3AF;
     
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
 }
 
 /* Breakpoints reference:

@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // ============================================================
 // MODEL : PROGRESSION
 // ============================================================
@@ -72,6 +79,14 @@ class Progression
         $stmt->execute([$etudiant_id, $lecon_id]);
         return $stmt->fetch() ?: null;
     }
+
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
 
     /**
      * Calculer la progression globale d'un etudiant sur un cours (en %).

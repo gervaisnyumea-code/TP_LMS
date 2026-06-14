@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../models/Utilisateur.php';
@@ -25,6 +32,14 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     set_flash('error', 'Format d\'email invalide.');
     rediriger('register');
 }
+
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
 
 if (strlen($password) < 6) {
     set_flash('error', 'Le mot de passe doit contenir au moins 6 caractères.');

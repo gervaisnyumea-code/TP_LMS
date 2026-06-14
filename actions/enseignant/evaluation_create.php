@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../models/Cours.php';
@@ -10,6 +17,14 @@ verifier_csrf();
 
 $cours_id = (int)($_POST['cours_id'] ?? 0);
 $lecon_id = (int)($_POST['lecon_id'] ?? 0);
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $titre = trim($_POST['titre'] ?? '');
 $note_de_passage = (int)($_POST['note_de_passage'] ?? 70);
 $tentatives_max = (int)($_POST['tentatives_max'] ?? 3);

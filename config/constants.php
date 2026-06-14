@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 
 // Chargement manuel du .env
 if (file_exists(__DIR__ . '/../.env')) {
@@ -19,6 +26,14 @@ define('APP_ENV', getenv('APP_ENV') ?: 'development');
 // -- Cloudinary (stockage fichiers PDF et video)
 $cloudinaryUrl = getenv('URL_CLOUDINARY') ?: '';
 $cloudinaryParts = $cloudinaryUrl ? parse_url($cloudinaryUrl) : [];
+
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
 
 define('CLOUDINARY_CLOUD_NAME', getenv('CLOUDINARY_CLOUD_NAME') ?: ($cloudinaryParts['host'] ?? ''));
 define('CLOUDINARY_API_KEY', getenv('CLOUDINARY_API_KEY') ?: (isset($cloudinaryParts['user']) ? urldecode($cloudinaryParts['user']) : ''));

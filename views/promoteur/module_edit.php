@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $module_id = (int)($_GET['id'] ?? 0);
 $module = $moduleModel->trouverParId($module_id);
 
@@ -54,6 +61,14 @@ require __DIR__ . '/../layouts/header.php';
             </div>
             <div class="table-container" style="border: none; border-radius: 0;">
                 <?php if(empty($coursAssocies)): ?>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
                     <div class="p-4 text-center text-muted">Aucun cours n'est associé à ce module pour le moment.</div>
                 <?php else: ?>
                 <table class="table">

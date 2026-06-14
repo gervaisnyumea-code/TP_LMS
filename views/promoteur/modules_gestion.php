@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $page_title = 'Gestion des Modules';
 require __DIR__ . '/../layouts/header.php';
 
@@ -32,6 +39,14 @@ $modules = $moduleModel->listerTous();
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Créer le module</button>
                 </form>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
             </div>
         </div>
     </div>

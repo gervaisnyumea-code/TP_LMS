@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 $page_title = 'Mes Cours';
 require __DIR__ . '/../layouts/header.php';
 
@@ -35,6 +42,14 @@ $mesCours = $coursModel->listerParEnseignant($_SESSION['user_id']);
                         <option value="<?= $m['id'] ?>"><?= e($m['titre']) ?></option>
                     <?php endforeach; ?>
                 </select>
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
             </div>
             <div class="d-flex justify-end gap-2">
                 <button type="button" class="btn btn-secondary" onclick="document.getElementById('form-create-cours').classList.add('d-none')">Annuler</button>

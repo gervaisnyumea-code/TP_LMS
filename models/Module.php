@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // ============================================================
 // MODEL : MODULE
 // ============================================================
@@ -42,6 +49,14 @@ class Module
     {
         $stmt = $this->pdo->query("
             SELECT m.*,
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
                    COUNT(DISTINCT c.id) as nb_cours,
                    u.nom as promoteur_nom, u.prenom as promoteur_prenom
             FROM modules m

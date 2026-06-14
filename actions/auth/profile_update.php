@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../models/Utilisateur.php';
@@ -13,6 +20,14 @@ $email = trim($_POST['email'] ?? '');
 $password = $_POST['password'] ?? '';
 
 $utilisateurModel = new Utilisateur($pdo);
+
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
 
 if (empty($nom) || empty($prenom) || empty($email)) {
     set_flash('error', 'Champs obligatoires manquants.');

@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../config/constants.php';
 
 class EmailService {
@@ -17,6 +24,14 @@ class EmailService {
             'to' => [['email' => $toEmail, 'name' => $toName]],
             'subject' => $subject,
             'htmlContent' => $htmlContent
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
         ];
 
         $ch = curl_init('https://api.brevo.com/v3/smtp/email');

@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 require_once __DIR__ . '/../../config/session.php';
 if (est_connecte()) {
     rediriger($_SESSION['role'] . '/dashboard');
@@ -35,6 +42,14 @@ $base_url = base_url();
 
         <?php $flash = get_flash(); if ($flash): ?>
             <div class="alert alert-<?= e($flash['type']) ?> mb-4">
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
                 <?= e($flash['message']) ?>
             </div>
         <?php endif; ?>

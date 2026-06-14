@@ -1,4 +1,19 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
+ */
+
 require_once __DIR__ . '/config/constants.php';
 echo "BREVO_API_KEY: " . (getenv('BREVO_API_KEY') ? "DEFINIE" : "NON DEFINIE") . "\n";
 echo "EMAIL_FROM: " . getenv('EMAIL_FROM') . "\n";

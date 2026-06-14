@@ -1,4 +1,11 @@
 <?php
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 // ============================================================
 // GESTION DE SESSION ET HELPERS D'AUTHENTIFICATION
 // ============================================================
@@ -68,6 +75,14 @@ function exiger_connexion(): void
  * Exige un role specifique. Retourne 403 si non autorise.
  */
 function exiger_role(string $role): void
+
+/*
+ * NOM: NYUMEA PEHA DARYL GERVAIS
+ * MATRICULE: 24H2571
+ * NIVEAU : LICENCE 2
+ * UNIVERSITE : UNIVERSITE DE YAOUNDE 1
+ */
+
 {
     exiger_connexion();
     if (!a_le_role($role)) {
