@@ -153,6 +153,16 @@ require __DIR__ . '/../layouts/header.php';
                                     <span class="text-sm text-warning font-medium d-flex align-center gap-1"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Aucune évaluation définie</span>
                                     <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('eval-form-<?= $l['id'] ?>').classList.toggle('d-none')">Créer Évaluation</button>
                                 </div>
+
+                                <!-- Formulaire création évaluation : placé ICI (à côté de sa leçon) mais NON imbriqué dans le form reorder grâce à l'attribut HTML5 form="..." -->
+                                <div id="eval-form-<?= $l['id'] ?>" class="d-none mt-3">
+                                    <div class="d-grid gap-2" style="grid-template-columns: 2fr 1fr 1fr;">
+                                        <input type="text" name="titre" form="eval-create-form-<?= $l['id'] ?>" class="input-field input-sm" placeholder="Titre du Quiz" value="Quiz : <?= e($l['titre']) ?>" required>
+                                        <input type="number" name="note_de_passage" form="eval-create-form-<?= $l['id'] ?>" class="input-field input-sm" placeholder="Seuil %" value="70" required>
+                                        <input type="number" name="tentatives_max" form="eval-create-form-<?= $l['id'] ?>" class="input-field input-sm" placeholder="Essais" value="3" required>
+                                    </div>
+                                    <button type="submit" form="eval-create-form-<?= $l['id'] ?>" class="btn btn-primary btn-sm mt-2">Sauvegarder l'évaluation</button>
+                                </div>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -163,24 +173,18 @@ require __DIR__ . '/../layouts/header.php';
     </div>
 </div>
 
-<!-- Formulaires de création d'évaluation (hors de tout form parent pour éviter l'imbrication invalide) -->
+<!-- VRAIS formulaires de création d'évaluation (hors de tout form parent), référencés par l'attribut HTML5 form="..." depuis les inputs dans la carte -->
 <?php foreach($lecons as $l): ?>
     <?php if(!$l['evaluation_id']): ?>
-    <form id="eval-form-<?= $l['id'] ?>" action="<?= $base_url ?>/index.php?page=enseignant/evaluation_create" method="POST" class="d-none mt-3">
+    <form id="eval-create-form-<?= $l['id'] ?>" action="<?= $base_url ?>/index.php?page=enseignant/evaluation_create" method="POST" class="d-none">
         <?= csrf_field() ?>
         <input type="hidden" name="lecon_id" value="<?= $l['id'] ?>">
         <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
-        <div class="d-grid gap-2" style="grid-template-columns: 2fr 1fr 1fr;">
-            <input type="text" name="titre" class="input-field input-sm" placeholder="Titre du Quiz" value="Quiz : <?= e($l['titre']) ?>" required>
-            <input type="number" name="note_de_passage" class="input-field input-sm" placeholder="Seuil %" value="70" required>
-            <input type="number" name="tentatives_max" class="input-field input-sm" placeholder="Essais" value="3" required>
-        </div>
-        <button type="submit" class="btn btn-primary btn-sm mt-2">Sauvegarder l'évaluation</button>
     </form>
     <?php endif; ?>
 <?php endforeach; ?>
 
-<!-- Formulaire de suppression (hors de tout form parent pour éviter l'imbrication invalide) -->
+<!-- Formulaires de suppression (hors de tout form parent) -->
 <?php foreach($lecons as $l): ?>
     <form id="delete-form-<?= $l['id'] ?>" action="<?= $base_url ?>/index.php?page=enseignant/lecon_delete" method="POST" class="d-none">
         <?= csrf_field() ?>
