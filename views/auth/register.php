@@ -38,7 +38,7 @@ $base_url = base_url();
             </div>
         <?php endif; ?>
 
-        <form action="<?= $base_url ?>/actions/auth/register.php" method="POST">
+        <form action="<?= $base_url ?>/index.php?page=auth/register" method="POST">
             <?= csrf_field() ?>
             
             <div class="d-grid gap-3" style="grid-template-columns: 1fr 1fr;">

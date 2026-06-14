@@ -8,6 +8,13 @@ require_once __DIR__ . '/constants.php';
 // -- Initialisation session securisee
 if (session_status() === PHP_SESSION_NONE) {
     session_name(SESSION_NAME);
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
+        'httponly' => true,
+        'samesite' => 'Strict',
+    ]);
     session_start();
 }
 
@@ -52,7 +59,7 @@ function a_le_role(string $role): bool
 function exiger_connexion(): void
 {
     if (!est_connecte()) {
-        header('Location: ' . APP_BASE_URL . '/index.php?page=login');
+        header('Location: ' . base_url('index.php?page=login'));
         exit;
     }
 }
@@ -101,7 +108,7 @@ function e(string $value): string
  */
 function rediriger(string $page, array $params = []): void
 {
-    $url = APP_BASE_URL . '/index.php?page=' . $page;
+    $url = base_url('index.php?page=' . $page);
     if (!empty($params)) {
         $url .= '&' . http_build_query($params);
     }
@@ -135,5 +142,7 @@ function get_flash(): ?array
  */
 function base_url(string $path = ''): string
 {
-    return APP_BASE_URL . '/' . ltrim($path, '/');
+    $base = rtrim(APP_BASE_URL, '/');
+    if ($path === '') return $base;
+    return $base . '/' . ltrim($path, '/');
 }

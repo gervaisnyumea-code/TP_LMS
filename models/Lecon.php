@@ -72,6 +72,25 @@ class Lecon
     }
 
     /**
+     * Réordonner les leçons d'un cours en mettant à jour leurs indices.
+     */
+    public function reordonner(int $cours_id, array $lecons_order): bool
+    {
+        $this->pdo->beginTransaction();
+        try {
+            $stmt = $this->pdo->prepare("UPDATE lecons SET ordre = ? WHERE id = ? AND cours_id = ?");
+            foreach ($lecons_order as $ordre => $id) {
+                $stmt->execute([$ordre + 1, $id, $cours_id]);
+            }
+            $this->pdo->commit();
+            return true;
+        } catch (Exception $e) {
+            $this->pdo->rollBack();
+            return false;
+        }
+    }
+
+    /**
      * Prochain ordre disponible pour un cours.
      */
     public function prochainOrdre(int $cours_id): int

@@ -41,7 +41,7 @@ $base_url = base_url();
             </div>
         <?php endif; ?>
 
-        <form action="<?= $base_url ?>/actions/auth/login.php" method="POST">
+        <form action="<?= $base_url ?>/index.php?page=auth/login" method="POST">
             <?= csrf_field() ?>
             
             <div class="form-group">

@@ -1,34 +1,35 @@
 <?php
 $page_title = 'Ma Progression';
-require_once __DIR__ . '/../views/layouts/header.php';
-
-require_once __DIR__ . '/../models/Progression.php';
-require_once __DIR__ . '/../models/Cours.php';
-require_once __DIR__ . '/../models/Module.php';
+require_once __DIR__ . '/../layouts/header.php';
 
 $etudiant_id = $_SESSION['user_id'];
 
-$cours_inscrits = Cours::findByInscriptions($etudiant_id);
-$progressions = [];
+$cours_inscrits = $coursModel->listerCoursEtudiant($etudiant_id);
 $total_lecons_validees = 0;
 $total_lecons = 0;
 $cours_termines = 0;
 
+$progressions = [];
 foreach ($cours_inscrits as $cours) {
-    $prog = Progression::calculerProgressionCours($etudiant_id, $cours['id']);
-    $validees = Progression::leconsValidees($etudiant_id, $cours['id']);
-    $total = Lecon::countByCours($cours['id']);
+    $prog = (int)$cours['progression'];
+    $validees = count($progressionModel->listerParCours($etudiant_id, $cours['id'])); // Wait, listerParCours returns all lecons
+    
+    // Better calculation for the display
+    $lecons_cours = $progressionModel->listerParCours($etudiant_id, $cours['id']);
+    $nb_validees = 0;
+    foreach($lecons_cours as $lc) if($lc['valide']) $nb_validees++;
+    $nb_total = count($lecons_cours);
 
     $progressions[] = [
         'cours' => $cours,
         'pourcentage' => $prog,
-        'lecons_validees' => count($validees),
-        'total_lecons' => $total,
+        'lecons_validees' => $nb_validees,
+        'total_lecons' => $nb_total,
         'termine' => ($prog >= 100)
     ];
 
-    $total_lecons_validees += count($validees);
-    $total_lecons += $total;
+    $total_lecons_validees += $nb_validees;
+    $total_lecons += $nb_total;
     if ($prog >= 100) $cours_termines++;
 }
 
@@ -39,7 +40,7 @@ $progression_globale = ($total_lecons > 0)
 
 <main class="main-content">
     <div class="topbar">
-        <h1><?= sanitize($page_title) ?></h1>
+        <h1><?= e($page_title) ?></h1>
     </div>
 
     <div class="dashboard-grid">
@@ -78,7 +79,7 @@ $progression_globale = ($total_lecons > 0)
             <?php foreach ($progressions as $p): ?>
                 <div class="card mt-2">
                     <div class="card-header">
-                        <span><?= sanitize($p['cours']['titre']) ?></span>
+                        <span><?= e($p['cours']['titre']) ?></span>
                         <?php if ($p['termine']): ?>
                             <span class="badge badge-success">Termine</span>
                         <?php else: ?>
@@ -105,4 +106,4 @@ $progression_globale = ($total_lecons > 0)
     </section>
 </main>
 
-<?php require_once __DIR__ . '/../views/layouts/footer.php'; ?>
+<?php require_once __DIR__ . '/../layouts/footer.php'; ?>

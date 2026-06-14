@@ -49,7 +49,7 @@
     border-radius: var(--radius-full);
     background-color: rgba(37, 99, 235, 0.1);
     color: var(--color-primary);
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-4); }
 }
 .auth-logo svg { width: 32px; height: 32px; }
 
@@ -93,7 +93,7 @@
 .course-card-meta {
     font-size: var(--font-size-sm);
     color: var(--color-text-muted);
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-4); }
     display: flex;
     align-items: center;
     gap: var(--spacing-2);
@@ -106,7 +106,7 @@
 
 .course-card-progress {
     margin-top: auto;
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-4); }
 }
 
 .course-card-progress-text {
@@ -236,19 +236,32 @@
         max-height: 400px;
     }
 }
-
 /* Quiz Card */
-.quiz-question {
+.quiz-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     padding: var(--spacing-4);
+    margin-top: var(--spacing-2);
     margin-bottom: var(--spacing-4);
+    max-height: 70vh; /* Limite la hauteur pour forcer le scroll */
+    overflow-y: auto; /* Permet le défilement interne */
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-question {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-3);
+    margin-bottom: var(--spacing-3);
+    min-width: 0;
 }
 
 .quiz-question-title {
     font-weight: 600;
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-3);
 }
 
 .quiz-option {

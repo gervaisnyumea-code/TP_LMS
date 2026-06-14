@@ -53,7 +53,7 @@ $coursVisibles = $coursModel->listerVisibles();
                 <?php if($estInscrit): ?>
                     <a href="<?= $base_url ?>/index.php?page=etudiant/cours&id=<?= $c['id'] ?>" class="btn btn-secondary w-100" style="width:100%; justify-content:center;">Accéder au cours</a>
                 <?php else: ?>
-                    <form action="<?= $base_url ?>/actions/etudiant/cours_inscrire.php" method="POST">
+                    <form action="<?= $base_url ?>/index.php?page=etudiant/cours_inscrire" method="POST">
                         <?= csrf_field() ?>
                         <input type="hidden" name="cours_id" value="<?= $c['id'] ?>">
                         <button type="submit" class="btn btn-primary w-100" style="width:100%; justify-content:center;">S'inscrire</button>

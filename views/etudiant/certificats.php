@@ -34,7 +34,7 @@ $certificats = $certificatModel->listerParEtudiant($_SESSION['user_id']);
                     Code : <?= e($c['code_verification']) ?>
                 </div>
                 
-                <a href="<?= $base_url ?>/actions/etudiant/certificat_download.php?id=<?= $c['id'] ?>" target="_blank" class="btn btn-primary btn-sm">
+                <a href="<?= $base_url ?>/index.php?page=etudiant/certificat&id=<?= $c['id'] ?>" target="_blank" class="btn btn-primary btn-sm">
                     Voir / Imprimer
                 </a>
             </div>

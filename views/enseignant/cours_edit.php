@@ -26,7 +26,7 @@ require __DIR__ . '/../layouts/header.php';
         <div class="card mb-4">
             <div class="card-header"><h3 class="font-semibold">Informations du cours</h3></div>
             <div class="card-body">
-                <form action="<?= $base_url ?>/actions/enseignant/cours_update.php" method="POST">
+                <form action="<?= $base_url ?>/index.php?page=enseignant/cours_update" method="POST">
                     <?= csrf_field() ?>
                     <input type="hidden" name="id" value="<?= $cours_id ?>">
                     
@@ -56,7 +56,7 @@ require __DIR__ . '/../layouts/header.php';
         <div class="card">
             <div class="card-header"><h3 class="font-semibold">Ajouter une leçon</h3></div>
             <div class="card-body">
-                <form action="<?= $base_url ?>/actions/enseignant/lecon_create.php" method="POST" enctype="multipart/form-data">
+                <form action="<?= $base_url ?>/index.php?page=enseignant/lecon_create" method="POST" enctype="multipart/form-data">
                     <?= csrf_field() ?>
                     <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
                     
@@ -102,15 +102,21 @@ require __DIR__ . '/../layouts/header.php';
                 <h3 class="font-semibold">Plan du cours (<?= count($lecons) ?> leçons)</h3>
             </div>
             
-            <div class="card-body p-0">
+            <form action="<?= $base_url ?>/index.php?page=enseignant/lecon_reorder" method="POST" class="card-body p-0">
+                <?= csrf_field() ?>
+                <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
+                
                 <?php if(empty($lecons)): ?>
                     <div class="p-4 text-center text-muted">Aucune leçon pour le moment.</div>
                 <?php else: ?>
+                    <div class="p-2 border-bottom text-right">
+                        <button type="submit" class="btn btn-secondary btn-sm">Enregistrer l'ordre</button>
+                    </div>
                     <?php foreach($lecons as $l): ?>
                     <div class="lesson-item d-flex flex-column align-stretch">
                         <div class="d-flex justify-between align-center w-100">
                             <div class="d-flex align-center gap-3">
-                                <span class="badge badge-locked"><?= $l['ordre'] ?></span>
+                                <input type="number" name="order[<?= $l['id'] ?>]" value="<?= $l['ordre'] ?>" class="input-field input-sm" style="width: 60px;">
                                 <div>
                                     <h4 class="font-medium"><?= e($l['titre']) ?></h4>
                                     <div class="text-xs text-muted d-flex gap-2 align-center">
@@ -122,13 +128,11 @@ require __DIR__ . '/../layouts/header.php';
                                 </div>
                             </div>
                             
-                            <form action="<?= $base_url ?>/actions/enseignant/lecon_delete.php" method="POST" data-confirm="Supprimer cette leçon et son évaluation ?">
-                                <?= csrf_field() ?>
-                                <input type="hidden" name="id" value="<?= $l['id'] ?>">
-                                <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
-                                <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
-                            </form>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('Supprimer cette leçon et son évaluation ?')) document.getElementById('delete-form-<?= $l['id'] ?>').submit();">Supprimer</button>
                         </div>
+                        
+                        <!-- Formulaire de suppression caché -->
+
 
                         <!-- Evaluation Info -->
                         <div class="mt-3 p-3 bg-bg rounded">
@@ -139,7 +143,7 @@ require __DIR__ . '/../layouts/header.php';
                                         <span class="text-xs text-muted ml-2">(<?= $l['nb_questions'] ?> questions)</span>
                                     </div>
                                     <!-- Here we would link to a dedicated evaluation edit page or open a modal -->
-                                    <button class="btn btn-secondary btn-sm" onclick="alert('L\'édition des évaluations se fait sur une vue détaillée (à implémenter si besoin).')">Gérer QCM</button>
+                                    <a href="<?= base_url('index.php?page=enseignant/evaluation_edit&id=' . $l['evaluation_id']) ?>" class="btn btn-secondary btn-sm">Gérer QCM</a>
                                 </div>
                             <?php else: ?>
                                 <div class="d-flex justify-between align-center">
@@ -148,7 +152,7 @@ require __DIR__ . '/../layouts/header.php';
                                 </div>
                                 
                                 <!-- Inline Eval Create Form -->
-                                <form id="eval-form-<?= $l['id'] ?>" action="<?= $base_url ?>/actions/enseignant/evaluation_create.php" method="POST" class="d-none mt-3">
+                                <form id="eval-form-<?= $l['id'] ?>" action="<?= $base_url ?>/index.php?page=enseignant/evaluation_create" method="POST" class="d-none mt-3">
                                     <?= csrf_field() ?>
                                     <input type="hidden" name="lecon_id" value="<?= $l['id'] ?>">
                                     <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
@@ -167,6 +171,13 @@ require __DIR__ . '/../layouts/header.php';
             </div>
         </div>
     </div>
-</div>
+</form>
 
-<?php require __DIR__ . '/../layouts/footer.php'; ?>
+<?php foreach($lecons as $l): ?>
+    <form id="delete-form-<?= $l['id'] ?>" action="<?= $base_url ?>/index.php?page=enseignant/lecon_delete" method="POST" class="d-none">
+        <?= csrf_field() ?>
+        <input type="hidden" name="id" value="<?= $l['id'] ?>">
+        <input type="hidden" name="cours_id" value="<?= $cours_id ?>">
+    </form>
+<?php endforeach; ?>
+

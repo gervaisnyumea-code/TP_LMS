@@ -126,7 +126,13 @@ class Cours
             SELECT c.*, u.nom as enseignant_nom, u.prenom as enseignant_prenom,
                    COUNT(DISTINCT l.id) as nb_lecons,
                    i.date_inscription,
-                   m.titre as module_titre
+                   m.titre as module_titre,
+                   (
+                       SELECT COALESCE(ROUND(COUNT(p.id) * 100.0 / NULLIF(COUNT(l2.id), 0)), 0)
+                       FROM lecons l2
+                       LEFT JOIN progressions p ON p.lecon_id = l2.id AND p.etudiant_id = ? AND p.valide = TRUE
+                       WHERE l2.cours_id = c.id
+                   ) as progression
             FROM inscriptions i
             JOIN cours c ON c.id = i.cours_id
             LEFT JOIN utilisateurs u ON u.id = c.enseignant_id
@@ -136,7 +142,7 @@ class Cours
             GROUP BY c.id, u.nom, u.prenom, i.date_inscription, m.titre
             ORDER BY i.date_inscription DESC
         ");
-        $stmt->execute([$etudiant_id]);
+        $stmt->execute([$etudiant_id, $etudiant_id]);
         return $stmt->fetchAll();
     }
 }

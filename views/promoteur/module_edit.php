@@ -28,7 +28,7 @@ require __DIR__ . '/../layouts/header.php';
         <div class="card">
             <div class="card-header"><h3 class="font-semibold">Informations</h3></div>
             <div class="card-body">
-                <form action="<?= $base_url ?>/actions/promoteur/module_update.php" method="POST">
+                <form action="<?= $base_url ?>/index.php?page=promoteur/module_update" method="POST">
                     <?= csrf_field() ?>
                     <input type="hidden" name="id" value="<?= $module_id ?>">
                     <div class="form-group">
@@ -65,7 +65,7 @@ require __DIR__ . '/../layouts/header.php';
                             <td class="text-sm"><?= e($c['enseignant_prenom'].' '.$c['enseignant_nom']) ?></td>
                             <td><span class="badge badge-locked"><?= $c['nb_lecons'] ?></span></td>
                             <td>
-                                <form action="<?= $base_url ?>/actions/promoteur/module_assign.php" method="POST">
+                                <form action="<?= $base_url ?>/index.php?page=promoteur/module_assign" method="POST">
                                     <?= csrf_field() ?>
                                     <input type="hidden" name="module_id" value="<?= $module_id ?>">
                                     <input type="hidden" name="cours_id" value="<?= $c['id'] ?>">
@@ -98,7 +98,7 @@ require __DIR__ . '/../layouts/header.php';
                             <td class="font-medium"><?= e($c['titre']) ?></td>
                             <td class="text-sm"><?= e($c['enseignant_prenom'].' '.$c['enseignant_nom']) ?></td>
                             <td>
-                                <form action="<?= $base_url ?>/actions/promoteur/module_assign.php" method="POST">
+                                <form action="<?= $base_url ?>/index.php?page=promoteur/module_assign" method="POST">
                                     <?= csrf_field() ?>
                                     <input type="hidden" name="module_id" value="<?= $module_id ?>">
                                     <input type="hidden" name="cours_id" value="<?= $c['id'] ?>">

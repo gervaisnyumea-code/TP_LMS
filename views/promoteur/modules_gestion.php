@@ -20,7 +20,7 @@ $modules = $moduleModel->listerTous();
                 <h3 class="font-semibold">Nouveau Module</h3>
             </div>
             <div class="card-body">
-                <form action="<?= $base_url ?>/actions/promoteur/module_create.php" method="POST">
+                <form action="<?= $base_url ?>/index.php?page=promoteur/module_create" method="POST">
                     <?= csrf_field() ?>
                     <div class="form-group">
                         <label class="form-label">Titre du module</label>
@@ -56,7 +56,7 @@ $modules = $moduleModel->listerTous();
                         <?= e($m['description'] ?: 'Aucune description.') ?>
                     </div>
                     <div class="card-footer d-flex justify-end gap-2">
-                        <form action="<?= $base_url ?>/actions/promoteur/module_delete.php" method="POST" class="d-inline" data-confirm="Êtes-vous sûr de vouloir supprimer ce module ? Les certificats liés seront conservés mais orphelins.">
+                        <form action="<?= $base_url ?>/index.php?page=promoteur/module_delete" method="POST" class="d-inline" data-confirm="Êtes-vous sûr de vouloir supprimer ce module ? Les certificats liés seront conservés mais orphelins.">
                             <?= csrf_field() ?>
                             <input type="hidden" name="id" value="<?= $m['id'] ?>">
                             <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>

@@ -28,12 +28,12 @@ $certificatModel   = new Certificat($pdo);
 $page = $_GET['page'] ?? '';
 
 // -- Routes publiques (sans authentification)
-$routes_publiques = ['login', 'register', 'certificat/verifier'];
+$routes_publiques = ['login', 'register', 'auth/login', 'auth/register', 'certificat/verifier'];
 
 // -- Si pas de page et connecte, rediriger vers le dashboard du role
 if ($page === '' && est_connecte()) {
     $page = $_SESSION['role'] . '/dashboard';
-    header('Location: ' . APP_BASE_URL . '/index.php?page=' . $page);
+    header('Location: ' . base_url('index.php?page=' . $page));
     exit;
 }
 
@@ -44,11 +44,8 @@ if ($page === '' && !est_connecte()) {
 
 // -- Verifier l'authentification pour les routes non publiques
 if (!in_array($page, $routes_publiques) && !est_connecte()) {
-    // Permettre les actions auth
-    if (!in_array($page, ['login', 'register'])) {
-        header('Location: ' . APP_BASE_URL . '/index.php?page=login');
-        exit;
-    }
+    header('Location: ' . base_url('index.php?page=login'));
+    exit;
 }
 
 // -- Dispatch des pages
@@ -81,9 +78,17 @@ switch ($page) {
         exiger_role(ROLE_ETUDIANT);
         require __DIR__ . '/views/etudiant/lecon_player.php';
         break;
+    case 'etudiant/progression':
+        exiger_role(ROLE_ETUDIANT);
+        require __DIR__ . '/views/etudiant/progression.php';
+        break;
     case 'etudiant/certificats':
         exiger_role(ROLE_ETUDIANT);
         require __DIR__ . '/views/etudiant/certificats.php';
+        break;
+    case 'etudiant/certificat':
+        exiger_role(ROLE_ETUDIANT);
+        require __DIR__ . '/views/etudiant/certificat.php';
         break;
 
     // ---- ENSEIGNANT ----
@@ -120,6 +125,78 @@ switch ($page) {
     case 'promoteur/supervision':
         exiger_role(ROLE_PROMOTEUR);
         require __DIR__ . '/views/promoteur/supervision.php';
+        break;
+
+    // ---- ACTIONS (POST/AJAX) ----
+    case 'etudiant/submit_quiz':
+        require __DIR__ . '/actions/etudiant/submit_quiz.php';
+        break;
+    case 'etudiant/lecon_viewed':
+        require __DIR__ . '/actions/etudiant/lecon_viewed.php';
+        break;
+    case 'etudiant/cours_inscrire':
+        require __DIR__ . '/actions/etudiant/cours_inscrire.php';
+        break;
+    case 'etudiant/file_serve':
+        require __DIR__ . '/actions/etudiant/file_serve.php';
+        break;
+    
+    case 'enseignant/cours_create':
+        require __DIR__ . '/actions/enseignant/cours_create.php';
+        break;
+    case 'enseignant/cours_update':
+        require __DIR__ . '/actions/enseignant/cours_update.php';
+        break;
+    case 'enseignant/cours_delete':
+        require __DIR__ . '/actions/enseignant/cours_delete.php';
+        break;
+    case 'enseignant/lecon_create':
+        require __DIR__ . '/actions/enseignant/lecon_create.php';
+        break;
+    case 'enseignant/lecon_update':
+        require __DIR__ . '/actions/enseignant/lecon_update.php';
+        break;
+    case 'enseignant/lecon_reorder':
+        require __DIR__ . '/actions/enseignant/lecon_reorder.php';
+        break;
+    case 'enseignant/lecon_delete':
+        require __DIR__ . '/actions/enseignant/lecon_delete.php';
+        break;
+    case 'enseignant/evaluation_edit':
+        exiger_role(ROLE_ENSEIGNANT);
+        require __DIR__ . '/views/enseignant/evaluation_edit.php';
+        break;
+    case 'enseignant/question_save':
+        require __DIR__ . '/actions/enseignant/question_save.php';
+        break;
+    case 'enseignant/question_delete':
+        require __DIR__ . '/actions/enseignant/question_delete.php';
+        break;
+    case 'enseignant/evaluation_update':
+        require __DIR__ . '/actions/enseignant/evaluation_update.php';
+        break;
+
+    case 'promoteur/module_create':
+        require __DIR__ . '/actions/promoteur/module_create.php';
+        break;
+    case 'promoteur/module_update':
+        require __DIR__ . '/actions/promoteur/module_update.php';
+        break;
+    case 'promoteur/module_delete':
+        require __DIR__ . '/actions/promoteur/module_delete.php';
+        break;
+    case 'promoteur/module_assign':
+        require __DIR__ . '/actions/promoteur/module_assign.php';
+        break;
+    case 'promoteur/stats':
+        require __DIR__ . '/actions/promoteur/promoteur_stats.php';
+        break;
+    
+    case 'auth/login':
+        require __DIR__ . '/actions/auth/login.php';
+        break;
+    case 'auth/register':
+        require __DIR__ . '/actions/auth/register.php';
         break;
 
     // ---- VERIFICATION CERTIFICAT (publique) ----

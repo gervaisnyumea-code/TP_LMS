@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/../config/session.php';
-require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . '/../config/constants.php';
+require_once __DIR__ . '/../../config/session.php';
+require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../../config/constants.php';
 
-require_login();
+exiger_connexion();
 
 $lecon_id = (int)($_GET['id'] ?? 0);
 if ($lecon_id <= 0) {
@@ -44,10 +44,13 @@ if (!$authorized) {
     exit('Acces refuse');
 }
 
-// Si URL Cloudinary, redirection directe
+// Si URL Cloudinary, redirection directe pour les vidéos, mais pas pour les PDF (forceront le téléchargement)
 if (!empty($lecon['url_contenu']) && strpos($lecon['url_contenu'], 'cloudinary.com') !== false) {
-    header('Location: ' . $lecon['url_contenu']);
-    exit;
+    if ($lecon['type_contenu'] === 'video') {
+        header('Location: ' . $lecon['url_contenu']);
+        exit;
+    }
+    // Pour les PDF, on ne redirige pas, on laisse le player gérer via un viewer externe
 }
 
 // Fallback : fichier local (dev only)

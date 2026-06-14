@@ -17,7 +17,7 @@ $mesCours = $coursModel->listerParEnseignant($_SESSION['user_id']);
 <div id="form-create-cours" class="card mb-5 d-none">
     <div class="card-header"><h3 class="font-semibold">Créer un nouveau cours</h3></div>
     <div class="card-body">
-        <form action="<?= $base_url ?>/actions/enseignant/cours_create.php" method="POST">
+        <form action="<?= $base_url ?>/index.php?page=enseignant/cours_create" method="POST">
             <?= csrf_field() ?>
             <div class="form-group">
                 <label class="form-label">Titre du cours</label>
@@ -63,7 +63,7 @@ $mesCours = $coursModel->listerParEnseignant($_SESSION['user_id']);
                 <p class="text-sm text-muted mb-4" style="flex:1;"><?= e(mb_strimwidth($c['description'] ?? '', 0, 100, '...')) ?></p>
             </div>
             <div class="card-footer d-flex justify-between align-center">
-                <form action="<?= $base_url ?>/actions/enseignant/cours_delete.php" method="POST" data-confirm="Attention: Cette action est irréversible. Supprimer ce cours supprimera toutes ses leçons et les progressions des étudiants. Continuer ?">
+                <form action="<?= $base_url ?>/index.php?page=enseignant/cours_delete" method="POST" data-confirm="Attention: Cette action est irréversible. Supprimer ce cours supprimera toutes ses leçons et les progressions des étudiants. Continuer ?">
                     <?= csrf_field() ?>
                     <input type="hidden" name="id" value="<?= $c['id'] ?>">
                     <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>

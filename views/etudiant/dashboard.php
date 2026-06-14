@@ -7,7 +7,8 @@ $certificats = $certificatModel->listerParEtudiant($_SESSION['user_id']);
 
 $nbEnCours = 0;
 $nbTermines = 0;
-foreach($mesCours as $c) {
+foreach($mesCours as &$c) {
+    $c['progression'] = $progressionModel->calculerProgressionCours($_SESSION['user_id'], $c['id']);
     if ($c['progression'] >= 100) {
         $nbTermines++;
     } else {

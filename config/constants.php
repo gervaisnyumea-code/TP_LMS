@@ -7,9 +7,12 @@ define('APP_BASE_URL', getenv('APP_BASE_URL') ?: '');
 define('APP_ENV', getenv('APP_ENV') ?: 'development');
 
 // -- Cloudinary (stockage fichiers PDF et video)
-define('CLOUDINARY_CLOUD_NAME', getenv('CLOUDINARY_CLOUD_NAME') ?: '');
-define('CLOUDINARY_API_KEY', getenv('CLOUDINARY_API_KEY') ?: '');
-define('CLOUDINARY_API_SECRET', getenv('CLOUDINARY_API_SECRET') ?: '');
+$cloudinaryUrl = getenv('URL_CLOUDINARY') ?: '';
+$cloudinaryParts = $cloudinaryUrl ? parse_url($cloudinaryUrl) : [];
+
+define('CLOUDINARY_CLOUD_NAME', getenv('CLOUDINARY_CLOUD_NAME') ?: ($cloudinaryParts['host'] ?? ''));
+define('CLOUDINARY_API_KEY', getenv('CLOUDINARY_API_KEY') ?: (isset($cloudinaryParts['user']) ? urldecode($cloudinaryParts['user']) : ''));
+define('CLOUDINARY_API_SECRET', getenv('CLOUDINARY_API_SECRET') ?: (isset($cloudinaryParts['pass']) ? urldecode($cloudinaryParts['pass']) : ''));
 define('CLOUDINARY_BASE_URL', 'https://res.cloudinary.com/' . CLOUDINARY_CLOUD_NAME);
 
 // -- Limites d'upload

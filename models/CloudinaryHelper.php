@@ -11,29 +11,24 @@ class CloudinaryHelper
         );
     }
 
-    private static function signature(int $timestamp, array $params = []): string
+    private static function signature(array $params = []): string
     {
         $to_sign = [];
-        $allowed = ['folder', 'public_id', 'resource_type', 'timestamp'];
-        foreach ($allowed as $key) {
-            if (isset($params[$key])) {
-                $to_sign[] = $key . '=' . $params[$key];
+        // On trie les paramètres alphabétiquement (requis par Cloudinary)
+        ksort($params);
+        
+        foreach ($params as $key => $value) {
+            if ($value !== null && $value !== '') {
+                $to_sign[] = $key . '=' . $value;
             }
         }
-        $to_sign[] = 'timestamp=' . $timestamp;
-        sort($to_sign);
+        
         $string_to_sign = implode('&', $to_sign);
         return sha1($string_to_sign . CLOUDINARY_API_SECRET);
     }
 
     /**
      * Upload un fichier vers Cloudinary.
-     *
-     * @param string $file_path   Chemin temporaire du fichier ($_FILES['tmp_name'])
-     * @param string $folder      Dossier Cloudinary (ex: "lecons/pdfs")
-     * @param string $public_id   Identifiant public unique
-     * @param string $resource_type  "raw" pour PDF, "video" pour video, "image" pour image
-     * @return array|null         ['url' => ..., 'public_id' => ...] ou null si echec
      */
     public static function upload(string $file_path, string $folder, string $public_id, string $resource_type = 'auto'): ?array
     {
@@ -48,11 +43,10 @@ class CloudinaryHelper
             'timestamp' => $timestamp,
         ];
 
-        if ($resource_type !== 'auto') {
-            $params['resource_type'] = $resource_type;
-        }
-
-        $signature = self::signature($timestamp, $params);
+        // On ne signe le resource_type que s'il est spécifié et différent de auto
+        // car il n'est pas toujours requis dans la signature de l'upload simple
+        
+        $signature = self::signature($params);
 
         $post_fields = [
             'file' => new CURLFile($file_path),
@@ -63,10 +57,7 @@ class CloudinaryHelper
             'public_id' => $public_id,
         ];
 
-        if ($resource_type !== 'auto') {
-            $post_fields['resource_type'] = $resource_type;
-        }
-
+        // resource_type est passé en paramètre d'URL dans l'API Cloudinary
         $url = self::apiUrl($resource_type);
 
         $ch = curl_init($url);

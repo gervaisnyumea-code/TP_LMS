@@ -9,8 +9,8 @@ if (!$coursModel->estInscrit($_SESSION['user_id'], $cours_id)) {
 $cours = $coursModel->trouverParId($cours_id);
 if (!$cours) rediriger('etudiant/catalogue');
 
-$lecons = $progressionModel->listerParCours($cours_id, $_SESSION['user_id']);
-$progressionGlobale = $progressionModel->calculerProgressionCours($cours_id, $_SESSION['user_id']);
+$lecons = $progressionModel->listerParCours($_SESSION['user_id'], $cours_id);
+$progressionGlobale = $progressionModel->calculerProgressionCours($_SESSION['user_id'], $cours_id);
 
 $page_title = $cours['titre'];
 require __DIR__ . '/../layouts/header.php';
@@ -69,18 +69,16 @@ require __DIR__ . '/../layouts/header.php';
             <div class="card-header"><h3 class="font-semibold">Plan du cours</h3></div>
             <div class="card-body p-0">
                 <?php 
-                $estBloque = false;
                 foreach($lecons as $index => $l): 
                     // Logique d'accès : la 1ere est tjs dispo, les autres si la précédente est validée
                     $accessible = true;
-                    if ($index > 0 && !$lecons[$index-1]['est_valide']) {
+                    if ($index > 0 && !$lecons[$index-1]['valide']) {
                         $accessible = false;
-                        $estBloque = true;
                     }
                 ?>
-                <div class="lesson-item <?= $accessible ? 'cursor-pointer' : 'opacity-50' ?>" <?= $accessible ? 'onclick="window.location.href=\''.$base_url.'/index.php?page=etudiant/lecon&id='.$l['id'].'\'"' : '' ?>>
-                    <div class="lesson-icon <?= $l['est_valide'] ? 'validated' : ($accessible ? 'available' : 'locked') ?>">
-                        <?php if($l['est_valide']): ?>
+                <div class="lesson-item <?= $accessible ? 'cursor-pointer' : 'opacity-50' ?>" <?= $accessible ? 'onclick="window.location.href=\''.$base_url.'/index.php?page=etudiant/lecon&id='.$l['lecon_id'].'\'"' : '' ?>>
+                    <div class="lesson-icon <?= $l['valide'] ? 'validated' : ($accessible ? 'available' : 'locked') ?>">
+                        <?php if($l['valide']): ?>
                             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                         <?php elseif($accessible): ?>
                             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -91,9 +89,9 @@ require __DIR__ . '/../layouts/header.php';
                     
                     <div class="lesson-details">
                         <div class="d-flex justify-between align-center">
-                            <h4 class="lesson-title"><?= $l['ordre'] ?>. <?= e($l['titre']) ?></h4>
-                            <?php if($l['meilleur_score'] !== null): ?>
-                                <span class="badge badge-<?= $l['est_valide'] ? 'success' : 'warning' ?>">Score: <?= $l['meilleur_score'] ?>%</span>
+                            <h4 class="lesson-title"><?= $l['ordre'] ?>. <?= e($l['lecon_titre']) ?></h4>
+                            <?php if($l['note_obtenue'] !== null): ?>
+                                <span class="badge badge-<?= $l['valide'] ? 'success' : 'warning' ?>">Score: <?= $l['note_obtenue'] ?>%</span>
                             <?php endif; ?>
                         </div>
                         <div class="lesson-meta">

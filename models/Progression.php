@@ -16,7 +16,7 @@ class Progression
      * Enregistrer ou mettre a jour la progression d'un etudiant sur une lecon.
      * Conserve la meilleure note. Incremente le compteur de tentatives.
      */
-    public function enregistrerTentative(int $etudiant_id, int $lecon_id, int $evaluation_id, int $score, int $note_de_passage): array
+    public function enregistrerTentative(int $etudiant_id, int $lecon_id, ?int $evaluation_id, int $score, int $note_de_passage): array
     {
         $valide = ($score >= $note_de_passage) ? 1 : 0;
 
@@ -47,7 +47,7 @@ class Progression
      * Marquer une lecon comme consultee par l'etudiant.
      * Cree la progression si elle n'existe pas encore.
      */
-    public function marquerConsultee(int $etudiant_id, int $lecon_id, int $evaluation_id): bool
+    public function marquerConsultee(int $etudiant_id, int $lecon_id, ?int $evaluation_id): bool
     {
         $existing = $this->trouverProgression($etudiant_id, $lecon_id);
 
@@ -103,8 +103,8 @@ class Progression
     public function listerParCours(int $etudiant_id, int $cours_id): array
     {
         $stmt = $this->pdo->prepare("
-            SELECT l.id as lecon_id, l.titre as lecon_titre, l.ordre,
-                   p.note_obtenue, p.valide, p.nb_tentatives, p.derniere_tentative,
+            SELECT l.id as lecon_id, l.titre as lecon_titre, l.ordre, l.type_contenu, l.duree_estimee,
+                   p.note_obtenue, COALESCE(p.valide, false) as valide, p.nb_tentatives, p.derniere_tentative,
                    e.id as evaluation_id, e.note_de_passage, e.tentatives_max
             FROM lecons l
             LEFT JOIN progressions p ON p.lecon_id = l.id AND p.etudiant_id = ?

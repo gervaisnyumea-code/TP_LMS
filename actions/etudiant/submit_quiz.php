@@ -50,10 +50,10 @@ $lecon_id = (int)$evalInfo['lecon_id'];
 // Verification tentatives
 $prog = $progressionModel->trouverProgression($etudiant_id, $lecon_id);
 $max = (int)($evalInfo['tentatives_max'] ?? 3);
-$deja_valide = $prog && $prog['valide'];
-$tentatives_actuelles = $prog ? (int)$prog['nb_tentatives'] : 0;
+$actuelles = $prog ? (int)$prog['nb_tentatives'] : 0;
+$estValidee = $prog ? ($prog['valide'] == 1) : false;
 
-if ($tentatives_actuelles >= $max && $max > 0 && !$deja_valide) {
+if ($actuelles >= $max && $max > 0 && !$estValidee) {
     echo json_encode(['success' => false, 'message' => 'Nombre maximal de tentatives atteint.']);
     exit;
 }
@@ -83,7 +83,7 @@ echo json_encode([
     'seuil' => $noteDePassage,
     'valide' => $valide,
     'nouvelle_progression' => $nouveauPourcentage,
-    'tentatives_restantes' => max(0, $max - ($tentatives_actuelles + 1)),
+    'tentatives_restantes' => max(0, $max - ($actuelles + 1)),
     'certificat_genere' => $certificatGenere,
     'cours_id' => $cours_id,
 ]);
